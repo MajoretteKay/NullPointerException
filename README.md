@@ -1,4 +1,4 @@
-# NullPointerException
+# NullPointerException - College Cram
 Group project to pull updates from if we work separately from the group and also for mock up purposes
 
 Proposal: College Cram
