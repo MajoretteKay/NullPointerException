@@ -1,4 +1,4 @@
-const User = class {
+const User = class { // basic outline of user object
     constructor(name, user, email, password, birthday) {
         this.name = name;
         this.username = user; //unique name for people

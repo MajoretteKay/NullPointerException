@@ -1,0 +1,1 @@
+// script for main app
