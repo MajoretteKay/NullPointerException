@@ -29,7 +29,10 @@ export async function renderSite() {
     const $root = $('#root');
     $root.append(signInForm());
 
-    $root.on("click", "#signInForm", signInHandler);
+    $root.on("submit", "#signInForm", signInHandler);
+    $root.on("click", "#signupForm", signUpForm);
+    $root.on("submit", "", signInHandler);
+    $root.on("click", "", signInForm);
 
 }
 
