@@ -7,7 +7,7 @@ const Event = class {
         this.data = date; // may need more work depending on form used (this includes date and time)
         this.type = type; //type of event: homework, quiz, test, interview, etc.
         this.info = description; //custom description of the event with user input
-        this.location = location;
+        this.location = location; //location 
     }
 
 }
