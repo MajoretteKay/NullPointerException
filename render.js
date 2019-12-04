@@ -16,49 +16,57 @@ export function signInForm() {
     <div>`;
 }
 
-export async function signInHandler() {
+export async function signInHandler(event) {
  //handler for submit button using axios to confirm 
  //or deny user access, if WithCredentials true then 
- //grant access to main website.
-
-    
+ //grant access to main website. For now just grants access
+    event.preventDefault();
+    window.location.href = "http://localhost:3000/main.html";
+     
 }
 
-export async function signUpForm() {
+export function signUpForm() {
     // renders the sign up form
     $('#signin').replaceWith(`<div id="signup">
     <h> Sign Up </h>
-    <form class="">
+    <label>Have An Account Already?</label>
+    <button class="signInButton">Sign In</button>
+    <form class="signUpForm">
     <label>Username:</label>
-    <input></input>
+    <input id="user"></input>
     <label>Password:</label>
-    <input></input>
+    <input id="password"></input>
     <label>Birthday:</label>
-    <input></input>
-    <label>First Name:</label>
-    <input></input>
-    <label>Last Name:</label>
-    <input></input>
+    <input id="birthday"></input>
+    <label>Your Name:</label>
+    <input id="name"></input>
+    <button type="submit">Create Account</button>
     </form>
     </div>`);
 }
 
-export async function signUpHandler() {
+export async function signUpHandler(event) {
+    event.preventDefault();
     //handler for submit button
+    let user = new User($('#name').val(), $('#user').val(), $('#password').val(), $('#birthday'));
+    //then submit to server using axios 'create' method
+    
+    //upon creating new account will switch back to sign in
+    signInSwitch();
 }
 
-export async function signInSwitch() {
+export function signInSwitch() {
     // switches the sign up form with sign in
-    $('#signin').replaceWith(signInForm());
+    $('#signup').replaceWith(signInForm());
 }
 
-export async function renderSite() {
+export function renderSite() {
     const $root = $('#root');
     $root.append(signInForm());
 
     $root.on("submit", ".signInForm", signInHandler);
     $root.on("click", ".signUpButton", signUpForm);
-    $root.on("submit", ".signupForm", signUpHandler);
+    $root.on("submit", ".signUpForm", signUpHandler);
     $root.on("click", ".signInButton", signInSwitch);
 
 }

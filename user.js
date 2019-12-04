@@ -1,5 +1,5 @@
 const User = class { // basic outline of user object
-    constructor(name, user, email, password, birthday) {
+    constructor(name, user, password, birthday) {
         this.name = name;
         this.username = user; //unique name for people, cannot match any others
         this.password = password;
