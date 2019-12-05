@@ -24,3 +24,29 @@ header{
 #signin button:hover{
     background-color: #8fc0a9;
 }
+
+#signup{
+    text-align: center;
+    width: 60%;
+    margin: 50px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: seashell;
+    opacity: .7;
+}
+
+#signup button{
+    block-size: 20px;
+    font-family: monospace;
+    color: #000000;
+    background-color: #c8d5b9;
+}
+
+#signup button:hover{
+    background-color: #8fc0a9;
+}
+
+body{
+    background-image: url("images/flat-lay-of-a-calendar-on-the-table.jpg");
+    background-repeat: no-repeat;
+}
