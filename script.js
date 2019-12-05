@@ -109,7 +109,7 @@ export function renderDay() {
     if (today == 6) { //switch case wasn't working for some reason
         day = "Saturday";
     }
-    dayView += `<header>${day}</header>`;
+    dayView += `<h>${day}</h>`;
 
     // list of events by time and give them lengths over the new table
     // shade in 30 min interval if there is 
@@ -159,8 +159,13 @@ export function renderWeek() {
     return text;
 }
 
-export async function addEvents() {
+export function addEventsForm() {
     // button handler ability to create new events to give to axios/server
+}
+
+export async function addEvent(event) {
+    // submits form info to axios
+
 }
 
 
