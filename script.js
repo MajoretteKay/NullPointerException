@@ -72,8 +72,8 @@ export function renderCal() {
                 calendar += `<th></th>`;
             } else {
                 calendar += `<th>${day}</th>`;
+                day++;
             }
-            day++;
         }
         calendar+=`</tr>`;
     }
