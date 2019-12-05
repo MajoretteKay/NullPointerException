@@ -112,14 +112,49 @@ export function renderDay() {
     dayView += `<header>${day}</header>`;
 
     // list of events by time and give them lengths over the new table
-    // sahde in 30 min interval if there is 
-    dayView += `</div>`;
-    return dayView;
-}
+    // shade in 30 min interval if there is 
+        dayView += `<table>`;
+        //add for loop for shading in events column
+        let hour = 12;
+        let min = 0;
+        let time = "am";
+        let minutes;
+        for (let i = 0; i < 48; i++) {
+            if (i >= 24) {
+                time = "pm";
+            }
+            if (min == 0) {
+                minutes = "00";
+            } else {
+                minutes = "30";
+            }
+            dayView += `<tr>
+            <th>${hour + ":" + minutes + time}</th>
+            <th></th>
+            </tr>`
+            // event goes in empty th above
+            if (min == 30 && hour == 12) {
+                hour = 1;
+                min = 0;
+            } else {
+                min+=30;
+            }
+            if (min == 60) {
+                min = 0;
+                hour++;
+            }
+            
+        }
+        dayView += `</table>`;
+        dayView += `</div>`;
+        return dayView;
+    }
+
+
 
 export function renderWeek() {
     let text = `<div id="weekly">`;
-
+    // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
     text += `</div>`;
     return text;
 }
