@@ -74,7 +74,7 @@ export async function signUpHandler(event) {
     createUserAccount(name, password, userName, birthday);
     
     //upon creating new account will switch back to sign in
-//    signInSwitch();
+    signInSwitch();
 }
 
 export function signInSwitch() {
