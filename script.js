@@ -64,10 +64,19 @@ export function renderCal() {
       <th>Sa</th>
       <th>Su</th>
     </tr>`;
-    for (let i = 1; i <= 31; i++) {
-
+    let day = 1; //generation of calendar
+    for(let j = 0; j <= 4; j++) {
+        calendar+=`<tr>`;
+        for (let i = 0; i < 7; i++) {
+            if ((day == 0 && i != first) || day > days) {
+                calendar += `<th></th>`;
+            } else {
+                calendar += `<th>${day}</th>`;
+            }
+            day++;
+        }
+        calendar+=`</tr>`;
     }
-
     calendar += `</table></div>`;
     return calendar;
     //renders a monthly view of everything event you have on what days
