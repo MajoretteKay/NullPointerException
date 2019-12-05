@@ -2,17 +2,18 @@
 
 export function signInForm() {
     // renders the sign in form
-    return `<div id="signin">
-    <h> Sign In </h>
-    <label>Don't Have An Account?</label>
-    <button class="signUpButton">Sign Up</button>
-    <form class="signInForm">
-    <label>Userame:</label>
-    <input></input>
-    <label>Password:</label>
-    <input type="password"></input>
-    <button type="submit">Sign In</button>
-    </form> 
+    return `
+    <div id="signin">
+        <h> Sign In </h>
+
+        <label>Don't Have An Account?</label>
+        <button class="signUpButton">Sign Up</button>
+
+        <form class="signInForm">
+            <label>Userame:</label> <input></input>
+            <label>Password:</label> <input type="password"></input>
+            <button type="submit">Sign In</button>
+        </form> 
     <div>`;
 }
 
