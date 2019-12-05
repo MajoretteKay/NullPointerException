@@ -6,6 +6,20 @@
         "firstName": "rgnktsjhao",
         "birthday": "raoeruh"
       }
+    },
+    "notdownthehollow": {
+      "passwordHash": "$2a$10$.2pPFBhXputbz6hCaSgGgeK.XbDqT25lQCt5rlQPuB41izrcbbNW2",
+      "data": {
+        "firstName": "anotheu",
+        "birthday": "rcohesuh"
+      }
+    },
+    "goldenlovers": {
+      "passwordHash": "$2a$10$mjwFW6kr6Zr8J6JN8KfRq.Vsvtb7eofGexs2Yerias8yfO1p1zou.",
+      "data": {
+        "firstName": "Kenny",
+        "birthday": "10101999"
+      }
     }
   }
 }
