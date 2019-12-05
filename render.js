@@ -27,21 +27,21 @@ export async function signInHandler(event) {
 
 export function signUpForm() {
     // renders the sign up form
-    $('#signin').replaceWith(`<div id="signup">
-    <h> Sign Up </h>
-    <label>Have An Account Already?</label>
-    <button class="signInButton">Sign In</button>
-    <form class="signUpForm">
-    <label>Username:</label>
-    <input id="user"></input>
-    <label>Password:</label>
-    <input id="password"></input>
-    <label>Birthday:</label>
-    <input id="birthday"></input>
-    <label>Your Name:</label>
-    <input id="name"></input>
-    <button type="submit">Create Account</button>
-    </form>
+    $('#signin').replaceWith(`
+    <div id="signup">
+        <h> Sign Up </h>
+
+        <label> Have An Account Already? </label>
+        <button class="signInButton">Sign In</button>
+
+        <form class="signUpForm">
+            <label>Username:</label> <input id="user"></input>
+            <label>Password:</label> <input id="password"></input>
+            <label>Birthday:</label> <input id="birthday"></input>
+            <label>Name:</label>     <input id="name"></input>
+
+            <button type="submit">Create Account</button>
+        </form>
     </div>`);
 }
 
@@ -74,3 +74,6 @@ export function renderSite() {
 $(function() {
     renderSite();
   });
+
+
+
