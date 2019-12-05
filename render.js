@@ -68,13 +68,13 @@ export async function signUpHandler(event) {
     let password = $('#password').val();
     let birthday = $('#birthday').val();
 
-    //handler for submit button
+    // handler for submit button
     // let user = new User($('#name').val(), $('#user').val(), $('#password').val(), $('#birthday'));
-    //then submit to server using axios 'create' method
+    // then submit to server using axios 'create' method
     createUserAccount(name, password, userName, birthday);
     
-    //upon creating new account will switch back to sign in
-//    signInSwitch();
+    // upon creating new account will switch back to sign in
+    signInSwitch();
 }
 
 export function signInSwitch() {
