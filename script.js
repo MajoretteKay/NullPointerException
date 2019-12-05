@@ -56,13 +56,13 @@ export function renderCal() {
       <th colspan="7">${month}  ${year}</th>
     </tr>
     <tr class="weekdays">
+      <th>Su</th>
       <th>Mo</th>
       <th>Tu</th>
       <th>We</th>
       <th>Th</th>
       <th>Fr</th>
       <th>Sa</th>
-      <th>Su</th>
     </tr>`;
     let day = 1; //generation of calendar
     for(let j = 0; j <= 4; j++) {
@@ -87,23 +87,29 @@ export function renderDay() {
     let dayView = `<div id="dayView">`;
     let today = new Date();
     today = today.getDay();
-    switch(today) {
-        case 0:
-            today = "Sunday";
-        case 1:
-            today = "Monday";
-        case 2: 
-            today = "Tuesday";
-        case 3:
-            today = "Wednesday";
-        case 4:
-            today = "Thursday";
-        case 5: 
-            today = "Friday";
-        case 6:
-            today = "Saturday";
+    let day = "";
+    if (today == 0) { //switch case wasn't working for some reason
+        day = "Sunday";
     }
-    dayView += `<header>${today}</header>`;
+    if (today == 1) { //switch case wasn't working for some reason
+        day = "Monday";
+    }
+    if (today == 2) { //switch case wasn't working for some reason
+        day = "Tuesday";
+    }
+    if (today == 3) { //switch case wasn't working for some reason
+        day = "Wednesday";
+    }
+    if (today == 4) { //switch case wasn't working for some reason
+        day = "Thursday";
+    }
+    if (today == 5) { //switch case wasn't working for some reason
+        day = "Friday";
+    }
+    if (today == 6) { //switch case wasn't working for some reason
+        day = "Saturday";
+    }
+    dayView += `<header>${day}</header>`;
 
     dayView += `</div>`;
     return dayView;
