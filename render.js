@@ -1,5 +1,9 @@
 // script for signing up and in
 
+const pubRoot = new axios.create({
+    baseURL: "http://localhost:3000"
+});
+
 export function signInForm() {
     // renders the sign in form
     return `
@@ -46,14 +50,31 @@ export function signUpForm() {
     </div>`);
 }
 
+async function createUserAccount(name, pass, username, birthday) {
+    return await pubRoot.post(`/account/create`, {
+        "name": username,
+        "pass": pass,
+        "data": {
+            "firstName": name,
+            "brithday": birthday
+        } 
+    })
+}
+
 export async function signUpHandler(event) {
     event.preventDefault();
+    let userName = $('#user').val();
+    let name = $('#name').val();
+    let password = $('#password').val();
+    let birthday = $('#birthday').val();
+
     //handler for submit button
-    let user = new User($('#name').val(), $('#user').val(), $('#password').val(), $('#birthday'));
+    // let user = new User($('#name').val(), $('#user').val(), $('#password').val(), $('#birthday'));
     //then submit to server using axios 'create' method
+    createUserAccount(name, password, userName, birthday);
     
     //upon creating new account will switch back to sign in
-    signInSwitch();
+//    signInSwitch();
 }
 
 export function signInSwitch() {
