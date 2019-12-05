@@ -49,11 +49,11 @@ export function renderCal() {
             days++;
         }
     }
-    }
+    } // change to buttons
     let calendar = `<div id="calendar">
     <table>
     <tr>
-      <th colspan="7">${month}  ${year}</th>
+      <th colspan="7">${month}  ${year}</th> 
     </tr>
     <tr class="weekdays">
       <th>Su</th>
@@ -111,12 +111,17 @@ export function renderDay() {
     }
     dayView += `<header>${day}</header>`;
 
+    // list of events by time and give them lengths over the new table
+    // sahde in 30 min interval if there is 
     dayView += `</div>`;
     return dayView;
 }
 
 export function renderWeek() {
-    //renders whats due soon
+    let text = `<div id="weekly">`;
+
+    text += `</div>`;
+    return text;
 }
 
 export async function addEvents() {
