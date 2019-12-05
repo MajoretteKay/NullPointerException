@@ -1,0 +1,24 @@
+{
+  "name": "nullpointerexception",
+  "version": "1.0.0",
+  "description": "Group project to pull updates from if we work separately from the group and also for mock up purposes",
+  "main": "event.js",
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MajoretteKay/NullPointerException.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MajoretteKay/NullPointerException/issues"
+  },
+  "homepage": "https://github.com/MajoretteKay/NullPointerException#readme"
+}
