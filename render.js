@@ -14,11 +14,24 @@ export function signInForm() {
         <button class="signUpButton">Sign Up</button>
 
         <form class="signInForm">
-            <label>Username:</label> <input></input>
-            <label>Password:</label> <input type="password"></input>
+            <label>Username:</label> <input id="user" ></input>
+            <label>Password:</label> <input id="password" type="password"></input>
             <button type="submit">Sign In</button>
         </form> 
     <div>`;
+}
+
+async function signInRequest(username, password) {
+    try {
+        const res = await pubRoot.post(`/account/login`, {
+            "name": username,
+            "pass": password 
+        });
+        return true;
+    } catch (error) {
+        alert(error.response.data["msg"]);
+        return false;
+    }
 }
 
 export async function signInHandler(event) {
@@ -26,8 +39,16 @@ export async function signInHandler(event) {
  //or deny user access, if WithCredentials true then 
  //grant access to main website. For now just grants access
     event.preventDefault();
-    window.location.href = "http://localhost:3000/main.html";
-     
+
+    let userName = $('#user').val();
+    let password = $('#password').val();
+
+    signInRequest(userName, password).then(function(loggedIn) {
+        if(loggedIn) {
+            window.location.href = "http://localhost:3001/main.html";
+        } 
+    });
+
 }
 
 export function signUpForm() {
@@ -97,9 +118,9 @@ export function renderSite() {
     $root.append(signInForm());
 
     $root.on("submit", ".signInForm", signInHandler);
+    $root.on("click", ".signInButton", signInSwitch);
     $root.on("click", ".signUpButton", signUpForm);
     $root.on("submit", ".signUpForm", signUpHandler);
-    $root.on("click", ".signInButton", signInSwitch);
 
 }
 
