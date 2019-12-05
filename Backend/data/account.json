@@ -1,2 +1,11 @@
 {
+  "users": {
+    "downthehollow": {
+      "passwordHash": "$2a$10$HAR1/mbuxXOIRs7HxHVTCe2ljSRxi793oYwqO/l4QrknOIkCgi/7O",
+      "data": {
+        "firstName": "rgnktsjhao",
+        "birthday": "raoeruh"
+      }
+    }
+  }
 }

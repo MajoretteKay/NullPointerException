@@ -44,7 +44,7 @@ export function renderCal() {
             days = 31;    
     }
     if (month == 2) {
-    for (let i = 2020; i < 2120; i=i+4) { // accounts for leap years for the next 100 years
+    for (let i = 2020; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
         }
@@ -56,13 +56,13 @@ export function renderCal() {
       <th colspan="7">${month}  ${year}</th>
     </tr>
     <tr class="weekdays">
+      <th>Su</th>
       <th>Mo</th>
       <th>Tu</th>
       <th>We</th>
       <th>Th</th>
       <th>Fr</th>
       <th>Sa</th>
-      <th>Su</th>
     </tr>`;
     let day = 1; //generation of calendar
     for(let j = 0; j <= 4; j++) {
@@ -84,6 +84,35 @@ export function renderCal() {
 
 export function renderDay() {
     //renders what you have due today
+    let dayView = `<div id="dayView">`;
+    let today = new Date();
+    today = today.getDay();
+    let day = "";
+    if (today == 0) { //switch case wasn't working for some reason
+        day = "Sunday";
+    }
+    if (today == 1) { //switch case wasn't working for some reason
+        day = "Monday";
+    }
+    if (today == 2) { //switch case wasn't working for some reason
+        day = "Tuesday";
+    }
+    if (today == 3) { //switch case wasn't working for some reason
+        day = "Wednesday";
+    }
+    if (today == 4) { //switch case wasn't working for some reason
+        day = "Thursday";
+    }
+    if (today == 5) { //switch case wasn't working for some reason
+        day = "Friday";
+    }
+    if (today == 6) { //switch case wasn't working for some reason
+        day = "Saturday";
+    }
+    dayView += `<header>${day}</header>`;
+
+    dayView += `</div>`;
+    return dayView;
 }
 
 export function renderWeek() {

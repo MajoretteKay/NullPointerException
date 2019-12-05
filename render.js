@@ -14,7 +14,7 @@ export function signInForm() {
         <button class="signUpButton">Sign Up</button>
 
         <form class="signInForm">
-            <label>Userame:</label> <input></input>
+            <label>Username:</label> <input></input>
             <label>Password:</label> <input type="password"></input>
             <button type="submit">Sign In</button>
         </form> 
@@ -51,14 +51,21 @@ export function signUpForm() {
 }
 
 async function createUserAccount(name, pass, username, birthday) {
-    return await pubRoot.post(`/account/create`, {
-        "name": username,
-        "pass": pass,
-        "data": {
-            "firstName": name,
-            "brithday": birthday
-        } 
-    })
+    try {
+        const res = await pubRoot.post(`/account/create`, {
+            "name": username,
+            "pass": pass,
+            "data": {
+                "firstName": name,
+                "birthday": birthday
+            } 
+        })
+        return false;
+    } catch (error) {
+        console.log(error.response.data);
+        alert(error.response.data["msg"]);
+        return true;
+    }
 }
 
 export async function signUpHandler(event) {
@@ -69,12 +76,15 @@ export async function signUpHandler(event) {
     let birthday = $('#birthday').val();
 
     // handler for submit button
-    // let user = new User($('#name').val(), $('#user').val(), $('#password').val(), $('#birthday'));
     // then submit to server using axios 'create' method
-    createUserAccount(name, password, userName, birthday);
+    var existing = createUserAccount(name, password, userName, birthday);
     
     // upon creating new account will switch back to sign in
-    signInSwitch();
+    if(existing){
+        signUpForm();
+    } else {
+        signInForm();
+    }
 }
 
 export function signInSwitch() {
