@@ -14,7 +14,7 @@ export function signInForm() {
         <button class="signUpButton">Sign Up</button>
 
         <form class="signInForm">
-            <label>Userame:</label> <input></input>
+            <label>Username:</label> <input></input>
             <label>Password:</label> <input type="password"></input>
             <button type="submit">Sign In</button>
         </form> 
@@ -56,7 +56,7 @@ async function createUserAccount(name, pass, username, birthday) {
         "pass": pass,
         "data": {
             "firstName": name,
-            "brithday": birthday
+            "birthday": birthday
         } 
     })
 }
