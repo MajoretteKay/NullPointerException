@@ -44,7 +44,7 @@ export function renderCal() {
             days = 31;    
     }
     if (month == 2) {
-    for (let i = 2020; i < year+100; i=i+4) { // accounts for leap years for the next 100 years
+    for (let i = 2020; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
         }
@@ -84,6 +84,29 @@ export function renderCal() {
 
 export function renderDay() {
     //renders what you have due today
+    let dayView = `<div id="dayView">`;
+    let today = new Date();
+    today = today.getDay();
+    switch(today) {
+        case 0:
+            today = "Sunday";
+        case 1:
+            today = "Monday";
+        case 2: 
+            today = "Tuesday";
+        case 3:
+            today = "Wednesday";
+        case 4:
+            today = "Thursday";
+        case 5: 
+            today = "Friday";
+        case 6:
+            today = "Saturday";
+    }
+    dayView += `<header>${today}</header>`;
+
+    dayView += `</div>`;
+    return dayView;
 }
 
 export function renderWeek() {
