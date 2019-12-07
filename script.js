@@ -71,7 +71,7 @@ export function renderCal() {
             if ((day == 0 && i != first) || day > days) {
                 calendar += `<th></th>`;
             } else {
-                calendar += `<th>${day}</th>`;
+                calendar += `<th><button class="date">${day}</button></th>`;
                 day++;
             }
         }
@@ -156,16 +156,37 @@ export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
     text += `<button class="eventButton">Add Event</button>`;
+    text += `<div id="eventForm"></div>`;
     text += `</div>`;
     return text;
 }
 
 export function addEventsForm() {
     // button handler ability to create new events to give to axios/server
+    let today = new Date();
+    let form = `<div id="eventForm"><form class="eventSubmit">
+    <label>Title:</label>
+    <input placeholder="Enter Title Here"></input>
+    <label>Enter The Date:</label>
+    <input placeholder=${today}></input>
+    <label>Enter Description:</label>
+    <textarea></textarea>
+    <label>Enter Location:</label>
+    <input placeholder="Genome G0100"></input>
+    <label>Select the Type of Event:</label>
+    <input placeholder="Homework"></input>
+    <button type="submit"> Create </button></form></div>`;
+    $('div#eventForm').replaceWith(form);
+
+
 }
 
 export async function addEvent(event) {
     // submits form info to axios
+    event.preventDefault();
+    $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
+
+
 
 }
 
@@ -176,6 +197,10 @@ export async function renderSite() {
     $root.append(renderCal());
     $root.append(renderDay());
     $root.append(renderWeek());
+
+    $root.on("click", ".eventButton", addEventsForm);
+    $root.on("submit", ".eventSubmit", addEvent);
+
 }
 
 $(function() {
