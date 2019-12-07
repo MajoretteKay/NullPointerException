@@ -155,6 +155,7 @@ export function renderDay() {
 export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
+    text += `<button class="eventButton">Add Event</button>`;
     text += `</div>`;
     return text;
 }
