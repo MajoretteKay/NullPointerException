@@ -43,7 +43,7 @@ export function renderCal() {
             month = "December";    
             days = 31;    
     }
-    if (month == 2) {
+    if (month == "February") {
     for (let i = 2020; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
