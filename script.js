@@ -77,29 +77,13 @@ export function renderCal() {
         }
         calendar+=`</tr>`;
     }
-    calendar += `</table>
-    <!-- weather widget start -->
-    <div id="m-booked-bl-simple-week-vertical-87488"> 
-    <div class="booked-wzs-160-275 weather-customize" style="background-color:#137AE9; width:160px;" id="width1 " > 
-    <a target="_blank" class="booked-wzs-top-160-275" href="https://www.booked.net/">
-    <img src="//s.bookcdn.com/images/letter/s5.gif" alt="booked net" /></a> <div class="booked-wzs-160-275_in"> 
-    <div class="booked-wzs-160-275-data"> <div class="booked-wzs-160-275-left-img wrz-01"></div> <div class="booked-wzs-160-275-right"> 
-    <div class="booked-wzs-day-deck"> <div class="booked-wzs-day-val"> <div class="booked-wzs-day-number"><span class="plus">+</span>5</div> 
-    <div class="booked-wzs-day-dergee"> <div class="booked-wzs-day-dergee-val">&deg;</div> <div class="booked-wzs-day-dergee-name">C</div> 
-    </div> </div> <div class="booked-wzs-day"> <div class="booked-wzs-day-d"><span class="plus">+</span>5&deg;</div> 
-    <div class="booked-wzs-day-n"><span class="plus">+</span>2&deg;</div> </div> </div> <div class="booked-wzs-160-275-info"> 
-    <div class="booked-wzs-160-275-city smolest">Chapel Hill</div> <div class="booked-wzs-160-275-date">Saturday, 07</div> </div> 
-    </div> </div> <a target="_blank" href="https://www.booked.net/weather/chapel-hill-3975" class="booked-wzs-bottom-160-275" > 
-    <table cellpadding="0" cellspacing="0" class="booked-wzs-table-160"> <tr> <td class="week-day"> <span class="week-day-txt">Sunday</span></td> 
-    <td class="week-day-ico"><div class="wrz-sml wrzs-06"></div></td> <td class="week-day-val"><span class="plus">+</span>10&deg;</td> <td class="week-day-val">-1&deg;</td> 
-    </tr> <tr> <td class="week-day"> <span class="week-day-txt">Monday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> 
-    <td class="week-day-val"><span class="plus">+</span>17&deg;</td> <td class="week-day-val"><span class="plus">+</span>8&deg;</td> </tr> <tr> <td class="week-day"> 
-    <span class="week-day-txt">Tuesday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>20&deg;</td> 
-    <td class="week-day-val"><span class="plus">+</span>6&deg;</td> </tr> <tr> <td class="week-day"> <span class="week-day-txt">Wednesday</span></td> <td class="week-day-ico">
-    <div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>9&deg;</td> <td class="week-day-val"><span class="plus">+</span>4&deg;</td> </tr> <tr> <td class="week-day"> 
-    <span class="week-day-txt">Thursday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-22"></div></td> <td class="week-day-val"><span class="plus">+</span>2&deg;</td> <td class="week-day-val">-3&deg;</td> </tr> <tr> 
-    <td class="week-day"> <span class="week-day-txt">Friday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val">
-    <span class="plus">+</span>3&deg;</td> <td class="week-day-val"><span class="plus">+</span>1&deg;</td> </tr> </table> <div class="booked-wzs-center"> <span class="booked-wzs-bottom-l">See 7-Day Forecast</span> </div> </a> </div> </div><script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/booked-wzs-widget-160x275.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-bl-simple-week-vertical-87488'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } </script> <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=3975&type=4&scode=124&ltid=3458&domid=w209&anc_id=38584&cmetric=1&wlangID=1&color=137AE9&wwidth=160&header_color=ffffff&text_color=333333&link_color=08488D&border_form=1&footer_color=ffffff&footer_text_color=333333&transparent=0"></script></div>`;
+    calendar += `</table>`;
+    calendar += `<a class="weatherwidget-io" href="https://forecast7.com/en/35d91n79d06/chapel-hill/?unit=us" data-label_1="CHAPEL HILL" data-label_2="WEATHER" data-theme="beige" >CHAPEL HILL WEATHER</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>`;
+    // above is a weather API
+    calendar += `</div>`;
     return calendar;
     //renders a monthly view of everything event you have on what days
 }
@@ -191,7 +175,7 @@ export function addEventsForm() {
     <label>Title:</label>
     <input placeholder="Enter Title Here" id="title"></input>
     <label>Enter The Date:</label>
-    <input placeholder=${today} id="date"></input>
+    <input placeholder="mm/dd/yyyy" id="date"></input>
     <label>Enter Description:</label>
     <textarea id="description"></textarea>
     <label>Enter Location:</label>
@@ -209,7 +193,7 @@ export async function addEvent(event) {
     event.preventDefault();
     
     let title = "" +$('input#title').val();
-    let date = new Date($('input#date').val()); // typing mm/dd/yyyy work at the moment
+    let date = new Date($('input#date').val()); // typing mm/dd/yyyy work for day at the moment
     let description = "" + $('textarea#description').val();
     let location = "" + $('input#location').val();
     let type = "" + $('input#type').val();
