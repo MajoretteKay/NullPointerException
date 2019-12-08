@@ -189,15 +189,15 @@ export function addEventsForm() {
     let today = new Date();
     let form = `<div id="eventForm"><form class="eventSubmit">
     <label>Title:</label>
-    <input placeholder="Enter Title Here"></input>
+    <input placeholder="Enter Title Here" id="title"></input>
     <label>Enter The Date:</label>
-    <input placeholder=${today}></input>
+    <input placeholder=${today} id="date"></input>
     <label>Enter Description:</label>
-    <textarea></textarea>
+    <textarea id="description"></textarea>
     <label>Enter Location:</label>
-    <input placeholder="Genome G0100"></input>
+    <input id="location" placeholder="Genome G0100"></input>
     <label>Select the Type of Event:</label>
-    <input placeholder="Homework"></input>
+    <input id="type" placeholder="Homework"></input>
     <button type="submit"> Create </button></form></div>`;
     $('div#eventForm').replaceWith(form);
 
@@ -207,8 +207,15 @@ export function addEventsForm() {
 export async function addEvent(event) {
     // submits form info to axios
     event.preventDefault();
+    
+    let title = "" +$('input#title').val();
+    let date = new Date($('input#date').val()); // typing mm/dd/yyyy work at the moment
+    let description = "" + $('textarea#description').val();
+    let location = "" + $('input#location').val();
+    let type = "" + $('input#type').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
-
+     
+    alert(title + date + description + location + type);
 
 
 }
