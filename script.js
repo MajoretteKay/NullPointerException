@@ -170,12 +170,15 @@ export function renderWeek() {
 
 export function addEventsForm() {
     // button handler ability to create new events to give to axios/server
-    let today = new Date();
     let form = `<div id="eventForm"><form class="eventSubmit">
     <label>Title:</label>
     <input placeholder="Enter Title Here" id="title"></input>
     <label>Enter The Date:</label>
     <input placeholder="mm/dd/yyyy" id="date"></input>
+    <label>Beginning Time:</label>
+    <input type="time"></input>
+    <label>Ending Time:</label>
+    <input type="time"></input>
     <label>Enter Description:</label>
     <textarea id="description"></textarea>
     <label>Enter Location:</label>
