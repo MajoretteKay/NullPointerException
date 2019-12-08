@@ -46,7 +46,31 @@ header{
     background-color: #8fc0a9;
 }
 
-body{
+body {
     background-image: url("images/flat-lay-of-a-calendar-on-the-table.jpg");
     background-repeat: no-repeat;
 }
+
+#dayView {
+    height: 720px;
+    width: 33%;
+    overflow-y: auto;
+    float: left;
+    align-content: center;
+}
+
+#calendar {
+    height: 720px;
+    float: left;
+    Width: 33%;
+    display: block;
+    
+}
+
+#weekly {
+    float: left;
+    height: 720px;
+    width: 33%;
+    align-content: center;
+}
+

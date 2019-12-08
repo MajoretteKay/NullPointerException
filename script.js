@@ -130,8 +130,9 @@ export function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>
-            <th></th>
-            </tr>`
+            <th><button>Edit Event</button>
+            <button>Delete Event</button></th>
+            </tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
                 hour = 1;
