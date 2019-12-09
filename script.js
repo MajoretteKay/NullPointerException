@@ -169,8 +169,8 @@ export function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>
-            <th><button>Edit Event</button>
-            <button>Delete Event</button></th>
+            <th><button>Edit</button>
+            <button>Delete</button></th>
             </tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
@@ -275,7 +275,7 @@ export function changeView(event) {
     if (newday == 6) { //switch case wasn't working for some reason
         day = "Saturday";
     }
-    dayView += `<h>${day}  ${newdate.getMonth()}/${newdate.getDate()}/${newdate.getFullYear()}</h>`;
+    dayView += `<h>${day}  ${newdate.getMonth()+1}/${newdate.getDate()}/${newdate.getFullYear()}</h>`;
 
     // list of events by time and give them lengths over the new table
     // shade in 30 min interval if there is 
@@ -296,7 +296,7 @@ export function changeView(event) {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>
-            <th><button>    </button></th>
+            <th><button>Edit</button><button>Delete</button></th>
             </tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
