@@ -16,15 +16,14 @@ export function renderCal() {
     let next;
     if (month == 1) {
         prev = new Date(year-1, 12, 1);
-        next = new Date(year, 2);
+        next = new Date(year, 2, 1);
     } else if (month == 12) {
         prev = new Date(year, 11, 1);
         next = new Date(year+1, 1,1);
     } else {
         prev = new Date(year, month-1, 1);
-        next = new Date(year. month+1, 1);
+        next = new Date(year, month+1, 1);
     }
-
 
     let days;
     let remonth;
@@ -72,11 +71,12 @@ export function renderCal() {
             days++;
         }
     }
+    
     } // change to buttons
     let calendar = `<div id="calendar">
     <table>
     <tr>
-      <th colspan="7"><button class="shift" value=${prev}><</button>  ${remonth}  ${year}  <button class="shift" value=${next}>></button></th>
+      <th colspan="7"><button class="shift" value="${prev}"> < </button>  ${remonth}  ${year}  <button class="shift" value="${next}"> > </button></th>
     </tr>
     <tr class="weekdays">
       <th>Su</th>
@@ -96,7 +96,7 @@ export function renderCal() {
             } else {
                 
                 if (day == today.getDate()) {
-                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="today date">${day}</button></th>`
+                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="date">${day}</button></th>`
                 } else {
                     calendar += `<th><button value="${new Date(year, month, day)}" class="date ">${day}</button></th>`;
                 }
@@ -242,9 +242,8 @@ export async function addEvent(event) {
 
 export function changeView(event) {
     let dayView = `<div id="dayView">`;
-    let newday = new Date(event.target.value)
+    let newday = new Date(event.target.value);
     newday = newday.getDay();
-    alert(newday);
     let day = "";
     if (newday == 0) { //switch case wasn't working for some reason
         day = "Sunday";
@@ -314,22 +313,23 @@ export function changeView(event) {
 
 export function newCalendar(event) {
     let today = new Date();
-    let month = today.getMonth();
-    let year = today.getFullYear();
-    let first = new Date(year,month,1).getDay();
+    let newMonth = new Date(event.target.value);
+    let month = newMonth.getMonth();
+    let year = newMonth.getFullYear();
+    let first = newMonth.getDay();
+    alert(first);
     let prev;
     let next;
     if (month == 1) {
         prev = new Date(year-1, 12, 1);
-        next = new Date(year, 2);
+        next = new Date(year, 2, 1);
     } else if (month == 12) {
         prev = new Date(year, 11, 1);
         next = new Date(year+1, 1,1);
     } else {
         prev = new Date(year, month-1, 1);
-        next = new Date(year. month+1, 1);
+        next = new Date(year, month+1, 1);
     }
-
 
     let days;
     let remonth;
@@ -381,7 +381,7 @@ export function newCalendar(event) {
     let calendar = `<div id="calendar">
     <table>
     <tr>
-      <th colspan="7"><button class="shift" value=${prev}><</button>  ${remonth}  ${year}  <button class="shift" value=${next}>></button></th>
+      <th colspan="7"><button class="shift" value="${prev}"> < </button>  ${remonth}  ${year}  <button class="shift" value="${next}"> > </button></th>
     </tr>
     <tr class="weekdays">
       <th>Su</th>
@@ -401,9 +401,9 @@ export function newCalendar(event) {
             } else {
                 
                 if (day == today.getDate()) {
-                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="today date">${day}</button></th>`
+                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="date">${day}</button></th>`
                 } else {
-                    calendar += `<th><button value="${new Date(year, month, day)}" class="date ">${day}</button></th>`;
+                    calendar += `<th><button value="${new Date(year, month, day)}" class="date">${day}</button></th>`;
                 }
                 day++;
             }
@@ -417,6 +417,8 @@ export function newCalendar(event) {
     </script>`;
     // above is a weather API script and html thats why it looks a hot mess
     calendar += `</div>`;
+
+    $('div#calendar').replaceWith(calendar);
     
 }
 
@@ -451,8 +453,9 @@ export async function renderSite() {
     $root.on("click", ".eventButton", addEventsForm);
     $root.on("submit", ".eventSubmit", addEvent);
     $root.on("click", ".logout", logout);
-    $root.on("click", ".date", changeView);
-    $root.on("click", ".shift", newCalendar)
+    $root.on("click", ".shift", newCalendar);
+    //$root.on("click", ".date", changeView);
+    
 }
 
 $(function() {
