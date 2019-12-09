@@ -125,30 +125,33 @@ export function renderDay() {
     //renders what you have due today
     let dayView = `<div id="dayView">`;
     let today = new Date();
-    today = today.getDay();
+    let theday = today.getDay();
     let day = "";
-    if (today == 0) { //switch case wasn't working for some reason
-        day = "Sunday";
+    switch(theday) {
+        case 0:
+            day = "Sunday";
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+            break;
     }
-    if (today == 1) { //switch case wasn't working for some reason
-        day = "Monday";
-    }
-    if (today == 2) { //switch case wasn't working for some reason
-        day = "Tuesday";
-    }
-    if (today == 3) { //switch case wasn't working for some reason
-        day = "Wednesday";
-    }
-    if (today == 4) { //switch case wasn't working for some reason
-        day = "Thursday";
-    }
-    if (today == 5) { //switch case wasn't working for some reason
-        day = "Friday";
-    }
-    if (today == 6) { //switch case wasn't working for some reason
-        day = "Saturday";
-    }
-    dayView += `<h>${day}</h>`;
+
+    dayView += `<h>${day}  ${today.getMonth()}/${today.getDate()}/${today.getFullYear()}</h>`;
 
     // list of events by time and give them lengths over the new table
     // shade in 30 min interval if there is 
