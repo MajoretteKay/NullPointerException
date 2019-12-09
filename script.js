@@ -2,6 +2,7 @@
 import {setToken} from "../../Config/Token.js";
 import {getToken} from "../../Config/Token.js";
 
+
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000"
 });
@@ -78,7 +79,12 @@ export function renderCal() {
             if ((day == 0 && i != first) || day > days) {
                 calendar += `<th></th>`;
             } else {
-                calendar += `<th><button class="date">${day}</button></th>`;
+                
+                if (day == today.getDate()) {
+                    calendar += `<th><button style="color: red;" class="today date">${day}</button></th>`
+                } else {
+                    calendar += `<th><button class="date ">${day}</button></th>`;
+                }
                 day++;
             }
         }
@@ -169,7 +175,12 @@ export function renderDay() {
 export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
-    text += `<button class="eventButton">Add Event</button>`;
+    text += `<p>Your next Homework is due in:</p>`;
+    text += `<p>Your next Quiz is due in:</p>`;
+    text += `<p>Your next Test is due in:</p>`;
+    text += `<p>Your next Class due is:</p>`;
+    text += `<p>Your next Project is due in:</p>`;
+    text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
     text += `</div>`;
     return text;
@@ -183,9 +194,9 @@ export function addEventsForm() {
     <label>Enter The Date:</label>
     <input placeholder="mm/dd/yyyy" id="date"></input>
     <label>Beginning Time:</label>
-    <input type="time"></input>
+    <input id="begin" type="time"></input>
     <label>Ending Time:</label>
-    <input type="time"></input>
+    <input id="end" type="time"></input>
     <label>Enter Description:</label>
     <textarea id="description"></textarea>
     <label>Enter Location:</label>
@@ -203,13 +214,15 @@ export async function addEvent(event) {
     event.preventDefault();
     
     let title = "" +$('input#title').val();
-    let date = new Date($('input#date').val()); // typing mm/dd/yyyy work for day at the moment
+    let date = new Date($('input#date').val()) // typing mm/dd/yyyy work for day at the moment'
+    let begins = $('input#begin').val()
+    let ends = $('input#end').val();
     let description = "" + $('textarea#description').val();
     let location = "" + $('input#location').val();
     let type = "" + $('input#type').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
      
-    alert(title + date + description + location + type);
+    alert(begins);
 }
 
 async function statusCheck() {
@@ -232,9 +245,9 @@ export async function renderSite() {
     //renders the calendar and forms and views
     const $root = $('#root');
 
-    window.setInterval(function(){
-        const loggedIn = statusCheck();
-    }, 5000);
+    //window.setInterval(function(){
+    //    const loggedIn = statusCheck();
+    //}, 5000);
 
     $root.append(renderCal());
     $root.append(renderDay());
