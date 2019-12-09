@@ -13,45 +13,46 @@ export function renderCal() {
     let year = today.getFullYear();
     let first = new Date(year,month,1).getDay();
     let days;
+    let remonth;
     switch(month) {
         case 1:
-            month = "January";
+            remonth = "January";
             days = 31;
         case 2:
-            month = "February";
+            remonth = "February";
             days = 28;
         case 3:
-            month = "March";
+            remonth = "March";
             days = 31
         case 4: 
-            month = "April";
+            remonth = "April";
             days = 30;
         case 5: 
-            month = "May";
+            remonth = "May";
             days = 31;
         case 6:
-            month = "June";
+            remonth = "June";
             days = 30;
         case 7: 
-            month = "July";
+            remonth = "July";
             days = 31;
         case 8: 
-            month = "August";
+            remonth = "August";
             days = 31;
         case 9:
-            month = "September";
+            remonth = "September";
             days = 30;
         case 10:
-            month = "October";
+            remonth = "October";
             days = 31;
         case 11:
-            month = "November";
+            remonth = "November";
             days = 30;
         case 12:
-            month = "December";    
+            remonth = "December";    
             days = 31;    
     }
-    if (month == "February") {
+    if (month == 2) {
     for (let i = 2020; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
@@ -61,7 +62,7 @@ export function renderCal() {
     let calendar = `<div id="calendar">
     <table>
     <tr>
-      <th colspan="7">${month}  ${year}</th> 
+      <th colspan="7">${remonth}  ${year}</th> 
     </tr>
     <tr class="weekdays">
       <th>Su</th>
@@ -81,9 +82,9 @@ export function renderCal() {
             } else {
                 
                 if (day == today.getDate()) {
-                    calendar += `<th><button style="color: red;" class="today date">${day}</button></th>`
+                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="today date">${day}</button></th>`
                 } else {
-                    calendar += `<th><button class="date ">${day}</button></th>`;
+                    calendar += `<th><button value="${new Date(year, month, day)}" class="date ">${day}</button></th>`;
                 }
                 day++;
             }
@@ -178,7 +179,7 @@ export function renderWeek() {
     text += `<p>Your next Homework is due in:</p>`;
     text += `<p>Your next Quiz is due in:</p>`;
     text += `<p>Your next Test is due in:</p>`;
-    text += `<p>Your next Class due is:</p>`;
+    text += `<p>Your next Class is:</p>`;
     text += `<p>Your next Project is due in:</p>`;
     text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
@@ -213,7 +214,7 @@ export async function addEvent(event) {
     // submits form info to axios
     event.preventDefault();
     
-    let title = "" +$('input#title').val();
+    let title = $('input#title').val();
     let date = new Date($('input#date').val()) // typing mm/dd/yyyy work for day at the moment'
     let begins = $('input#begin').val()
     let ends = $('input#end').val();
@@ -222,7 +223,79 @@ export async function addEvent(event) {
     let type = "" + $('input#type').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
      
-    alert(begins);
+
+}
+
+export function changeView(event) {
+    let dayView = `<div id="dayView">`;
+    let newday = new Date(event.target.value)
+    newday = newday.getDay();
+    alert(newday);
+    let day = "";
+    if (newday == 0) { //switch case wasn't working for some reason
+        day = "Sunday";
+    }
+    if (newday == 1) { //switch case wasn't working for some reason
+        day = "Monday";
+    }
+    if (newday == 2) { //switch case wasn't working for some reason
+        day = "Tuesday";
+    }
+    if (newday == 3) { //switch case wasn't working for some reason
+        day = "Wednesday";
+    }
+    if (newday == 4) { //switch case wasn't working for some reason
+        day = "Thursday";
+    }
+    if (newday == 5) { //switch case wasn't working for some reason
+        day = "Friday";
+    }
+    if (newday == 6) { //switch case wasn't working for some reason
+        day = "Saturday";
+    }
+    dayView += `<h>${day}</h>`;
+
+    // list of events by time and give them lengths over the new table
+    // shade in 30 min interval if there is 
+        dayView += `<table>`;
+        //add for loop for shading in events column
+        let hour = 12;
+        let min = 0;
+        let time = "am";
+        let minutes;
+        for (let i = 0; i < 48; i++) {
+            if (i >= 24) {
+                time = "pm";
+            }
+            if (min == 0) {
+                minutes = "00";
+            } else {
+                minutes = "30";
+            }
+            dayView += `<tr>
+            <th>${hour + ":" + minutes + time}</th>
+            <th><button>Edit Event</button>
+            <button>Delete Event</button></th>
+            </tr>`;
+            // event goes in empty th above
+            if (min == 30 && hour == 12) {
+                hour = 1;
+                min = 0;
+            } else {
+                min+=30;
+            }
+            if (min == 60) {
+                min = 0;
+                hour++;
+            }
+            
+        }
+        dayView += `</table>`;
+        dayView += `</div>`;
+
+        $('div#dayView').replaceWith(dayView);
+
+
 }
 
 async function statusCheck() {
@@ -236,7 +309,7 @@ async function statusCheck() {
 
 }
 
-function logout() {
+export function logout() {
     window.location.href = "http://localhost:3001/index.html";
 }
 
@@ -246,7 +319,7 @@ export async function renderSite() {
     const $root = $('#root');
 
     //window.setInterval(function(){
-    //    const loggedIn = statusCheck();
+    //   const loggedIn = statusCheck();
     //}, 5000);
 
     $root.append(renderCal());
@@ -255,7 +328,8 @@ export async function renderSite() {
 
     $root.on("click", ".eventButton", addEventsForm);
     $root.on("submit", ".eventSubmit", addEvent);
-
+    $root.on("click", ".logout", logout);
+    $root.on("click", ".date", changeView);
 }
 
 $(function() {
