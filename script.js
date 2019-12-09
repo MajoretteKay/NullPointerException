@@ -14,12 +14,12 @@ export function renderCal() {
     let first = new Date(year,month,1).getDay();
     let prev;
     let next;
-    if (month == 1) {
-        prev = new Date(year-1, 12, 1);
-        next = new Date(year, 2, 1);
-    } else if (month == 12) {
-        prev = new Date(year, 11, 1);
-        next = new Date(year+1, 1,1);
+    if (month == 0) {
+        prev = new Date(year-1, 11, 1);
+        next = new Date(year, 1, 1);
+    } else if (month == 11) {
+        prev = new Date(year, 10, 1);
+        next = new Date(year+1, 0,1);
     } else {
         prev = new Date(year, month-1, 1);
         next = new Date(year, month+1, 1);
@@ -28,50 +28,59 @@ export function renderCal() {
     let days;
     let remonth;
     switch(month) {
-        case 1:
+        case 0:
             remonth = "January";
             days = 31;
-        case 2:
+            break;
+        case 1:
             remonth = "February";
             days = 28;
-        case 3:
+            break;
+        case 2:
             remonth = "March";
-            days = 31
-        case 4: 
+            days = 31;
+            break;
+        case 3: 
             remonth = "April";
             days = 30;
-        case 5: 
+            break;
+        case 4: 
             remonth = "May";
             days = 31;
-        case 6:
+            break;
+        case 5:
             remonth = "June";
             days = 30;
-        case 7: 
+            break;
+        case 6: 
             remonth = "July";
             days = 31;
-        case 8: 
+        case 7: 
             remonth = "August";
             days = 31;
-        case 9:
+            break;
+        case 8:
             remonth = "September";
             days = 30;
-        case 10:
+            break;
+        case 9:
             remonth = "October";
             days = 31;
-        case 11:
+        case 10:
             remonth = "November";
             days = 30;
-        case 12:
+            break;
+        case 11:
             remonth = "December";    
-            days = 31;    
+            days = 31;  
+            break;  
     }
-    if (month == 2) {
+    if (month == 1) {
     for (let i = 0; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
         }
     }
-    
     } // change to buttons
     let calendar = `<div id="calendar">
     <table>
@@ -91,10 +100,9 @@ export function renderCal() {
     for(let j = 0; j <= 4; j++) {
         calendar+=`<tr>`;
         for (let i = 0; i < 7; i++) {
-            if ((day == 0 && i != first) || day > days) {
+            if ((day == 1 && i != first) || day > days) {
                 calendar += `<th></th>`;
             } else {
-                
                 if (day == today.getDate()) {
                     calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="date">${day}</button></th>`
                 } else {
@@ -317,15 +325,15 @@ export function newCalendar(event) {
     let month = newMonth.getMonth();
     let year = newMonth.getFullYear();
     let first = newMonth.getDay();
-    alert(first);
+    
     let prev;
     let next;
-    if (month == 1) {
-        prev = new Date(year-1, 12, 1);
-        next = new Date(year, 2, 1);
-    } else if (month == 12) {
-        prev = new Date(year, 11, 1);
-        next = new Date(year+1, 1,1);
+    if (month == 0) {
+        prev = new Date(year-1, 11, 1);
+        next = new Date(year, 1, 1);
+    } else if (month == 11) {
+        prev = new Date(year, 10, 1);
+        next = new Date(year+1, 0, 1);
     } else {
         prev = new Date(year, month-1, 1);
         next = new Date(year, month+1, 1);
@@ -334,44 +342,56 @@ export function newCalendar(event) {
     let days;
     let remonth;
     switch(month) {
-        case 1:
+        case 0:
             remonth = "January";
             days = 31;
-        case 2:
+            break;
+        case 1:
             remonth = "February";
             days = 28;
-        case 3:
+            break;
+        case 2:
             remonth = "March";
-            days = 31
-        case 4: 
+            days = 31;
+            break;
+        case 3: 
             remonth = "April";
             days = 30;
-        case 5: 
+            break;
+        case 4: 
             remonth = "May";
             days = 31;
-        case 6:
+            break;
+        case 5:
             remonth = "June";
             days = 30;
-        case 7: 
+            break;
+        case 6: 
             remonth = "July";
             days = 31;
-        case 8: 
+            break;
+        case 7: 
             remonth = "August";
             days = 31;
-        case 9:
+            break;
+        case 8:
             remonth = "September";
             days = 30;
-        case 10:
+            break;
+        case 9:
             remonth = "October";
             days = 31;
-        case 11:
+            break;
+        case 10:
             remonth = "November";
             days = 30;
-        case 12:
+            break;
+        case 11:
             remonth = "December";    
-            days = 31;    
+            days = 31;  
+            break;  
     }
-    if (month == 2) {
+    if (month == 1) {
     for (let i = 0; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
@@ -396,11 +416,11 @@ export function newCalendar(event) {
     for(let j = 0; j <= 4; j++) {
         calendar+=`<tr>`;
         for (let i = 0; i < 7; i++) {
-            if ((day == 0 && i != first) || day > days) {
+            if ((day == 1 && i != first) || day > days) {
                 calendar += `<th></th>`;
             } else {
                 
-                if (day == today.getDate()) {
+                if (day == today.getDate() && month == today.getMonth() && year == today.getFullYear()) {
                     calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="date">${day}</button></th>`
                 } else {
                     calendar += `<th><button value="${new Date(year, month, day)}" class="date">${day}</button></th>`;
@@ -454,7 +474,7 @@ export async function renderSite() {
     $root.on("submit", ".eventSubmit", addEvent);
     $root.on("click", ".logout", logout);
     $root.on("click", ".shift", newCalendar);
-    //$root.on("click", ".date", changeView);
+    $root.on("click", ".date", changeView);
     
 }
 
