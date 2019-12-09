@@ -12,6 +12,20 @@ export function renderCal() {
     let month = today.getMonth();
     let year = today.getFullYear();
     let first = new Date(year,month,1).getDay();
+    let prev;
+    let next;
+    if (month == 1) {
+        prev = new Date(year-1, 12, 1);
+        next = new Date(year, 2);
+    } else if (month == 12) {
+        prev = new Date(year, 11, 1);
+        next = new Date(year+1, 1,1);
+    } else {
+        prev = new Date(year, month-1, 1);
+        next = new Date(year. month+1, 1);
+    }
+
+
     let days;
     let remonth;
     switch(month) {
@@ -53,7 +67,7 @@ export function renderCal() {
             days = 31;    
     }
     if (month == 2) {
-    for (let i = 2020; i < year+100; i=i+4) { // accounts for leap years
+    for (let i = 0; i < year+100; i=i+4) { // accounts for leap years
         if (year == i) {
             days++;
         }
@@ -62,7 +76,7 @@ export function renderCal() {
     let calendar = `<div id="calendar">
     <table>
     <tr>
-      <th colspan="7">${remonth}  ${year}</th> 
+      <th colspan="7"><button class="shift" value=${prev}><</button>  ${remonth}  ${year}  <button class="shift" value=${next}>></button></th>
     </tr>
     <tr class="weekdays">
       <th>Su</th>
@@ -298,6 +312,114 @@ export function changeView(event) {
 
 }
 
+export function newCalendar(event) {
+    let today = new Date();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let first = new Date(year,month,1).getDay();
+    let prev;
+    let next;
+    if (month == 1) {
+        prev = new Date(year-1, 12, 1);
+        next = new Date(year, 2);
+    } else if (month == 12) {
+        prev = new Date(year, 11, 1);
+        next = new Date(year+1, 1,1);
+    } else {
+        prev = new Date(year, month-1, 1);
+        next = new Date(year. month+1, 1);
+    }
+
+
+    let days;
+    let remonth;
+    switch(month) {
+        case 1:
+            remonth = "January";
+            days = 31;
+        case 2:
+            remonth = "February";
+            days = 28;
+        case 3:
+            remonth = "March";
+            days = 31
+        case 4: 
+            remonth = "April";
+            days = 30;
+        case 5: 
+            remonth = "May";
+            days = 31;
+        case 6:
+            remonth = "June";
+            days = 30;
+        case 7: 
+            remonth = "July";
+            days = 31;
+        case 8: 
+            remonth = "August";
+            days = 31;
+        case 9:
+            remonth = "September";
+            days = 30;
+        case 10:
+            remonth = "October";
+            days = 31;
+        case 11:
+            remonth = "November";
+            days = 30;
+        case 12:
+            remonth = "December";    
+            days = 31;    
+    }
+    if (month == 2) {
+    for (let i = 0; i < year+100; i=i+4) { // accounts for leap years
+        if (year == i) {
+            days++;
+        }
+    }
+    } // change to buttons
+    let calendar = `<div id="calendar">
+    <table>
+    <tr>
+      <th colspan="7"><button class="shift" value=${prev}><</button>  ${remonth}  ${year}  <button class="shift" value=${next}>></button></th>
+    </tr>
+    <tr class="weekdays">
+      <th>Su</th>
+      <th>Mo</th>
+      <th>Tu</th>
+      <th>We</th>
+      <th>Th</th>
+      <th>Fr</th>
+      <th>Sa</th>
+    </tr>`;
+    let day = 1; //generation of calendar
+    for(let j = 0; j <= 4; j++) {
+        calendar+=`<tr>`;
+        for (let i = 0; i < 7; i++) {
+            if ((day == 0 && i != first) || day > days) {
+                calendar += `<th></th>`;
+            } else {
+                
+                if (day == today.getDate()) {
+                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="today date">${day}</button></th>`
+                } else {
+                    calendar += `<th><button value="${new Date(year, month, day)}" class="date ">${day}</button></th>`;
+                }
+                day++;
+            }
+        }
+        calendar+=`</tr>`;
+    }
+    calendar += `</table>`;
+    calendar += `<a class="weatherwidget-io" href="https://forecast7.com/en/35d91n79d06/chapel-hill/?unit=us" data-label_1="CHAPEL HILL" data-label_2="WEATHER" data-days="3" data-theme="beige" >CHAPEL HILL WEATHER</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>`;
+    // above is a weather API script and html thats why it looks a hot mess
+    calendar += `</div>`;
+    
+}
+
 async function statusCheck() {
     try {
         const res = await pubRoot.get(("/account/status"), {headers: {Authorization: `Bearer ${getToken()}`}});
@@ -330,6 +452,7 @@ export async function renderSite() {
     $root.on("submit", ".eventSubmit", addEvent);
     $root.on("click", ".logout", logout);
     $root.on("click", ".date", changeView);
+    $root.on("click", ".shift", newCalendar)
 }
 
 $(function() {
