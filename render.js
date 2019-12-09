@@ -1,5 +1,5 @@
 // script for signing up and in
-import {setToken} from "../../config/Token";
+import {setToken} from "../../Config/Token.js";
 
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000"

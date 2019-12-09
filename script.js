@@ -1,5 +1,6 @@
 // script for main app
-import {getToken} from "../../config/Token";
+import {setToken} from "../../Config/Token.js";
+import {getToken} from "../../Config/Token.js";
 
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000"
@@ -209,15 +210,15 @@ export async function addEvent(event) {
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
      
     alert(title + date + description + location + type);
-
-
 }
 
 async function statusCheck() {
     try {
-        return (await pubRoot.get("/account/status")).data;
+        const res = await pubRoot.get(("/account/status"), {headers: {Authorization: `Bearer ${getToken()}`}});
+        const data = res.data;
+        return data;
     } catch(error) {
-        return false;
+        logout();
     }
 
 }
@@ -233,9 +234,6 @@ export async function renderSite() {
 
     window.setInterval(function(){
         const loggedIn = statusCheck();
-        if(!loggedIn) {
-            logout();
-        }
     }, 5000);
 
     $root.append(renderCal());
