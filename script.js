@@ -1,4 +1,10 @@
 // script for main app
+import {getToken} from "../../config/Token";
+
+const pubRoot = new axios.create({
+    baseURL: "http://localhost:3000"
+});
+
 export function renderCal() {
     let today = new Date();
     let month = today.getMonth();
@@ -207,10 +213,31 @@ export async function addEvent(event) {
 
 }
 
+async function statusCheck() {
+    try {
+        return (await pubRoot.get("/account/status")).data;
+    } catch(error) {
+        return false;
+    }
+
+}
+
+function logout() {
+    window.location.href = "http://localhost:3001/index.html";
+}
+
 
 export async function renderSite() {
     //renders the calendar and forms and views
     const $root = $('#root');
+
+    window.setInterval(function(){
+        const loggedIn = statusCheck();
+        if(!loggedIn) {
+            logout();
+        }
+    }, 5000);
+
     $root.append(renderCal());
     $root.append(renderDay());
     $root.append(renderWeek());
