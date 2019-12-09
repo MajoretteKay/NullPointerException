@@ -251,8 +251,8 @@ export async function addEvent(event) {
 
 export function changeView(event) {
     let dayView = `<div id="dayView">`;
-    let newday = new Date(event.target.value);
-    newday = newday.getDay();
+    let newdate = new Date(event.target.value);
+    let newday = newdate.getDay();
     let day = "";
     if (newday == 0) { //switch case wasn't working for some reason
         day = "Sunday";
@@ -275,7 +275,7 @@ export function changeView(event) {
     if (newday == 6) { //switch case wasn't working for some reason
         day = "Saturday";
     }
-    dayView += `<h>${day}</h>`;
+    dayView += `<h>${day}  ${newdate.getMonth()}/${newdate.getDate()}/${newdate.getFullYear()}</h>`;
 
     // list of events by time and give them lengths over the new table
     // shade in 30 min interval if there is 
@@ -296,8 +296,7 @@ export function changeView(event) {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>
-            <th><button>Edit Event</button>
-            <button>Delete Event</button></th>
+            <th><button>    </button></th>
             </tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
