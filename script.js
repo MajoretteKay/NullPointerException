@@ -151,7 +151,7 @@ export function renderDay() {
             break;
     }
 
-    dayView += `<h>${day}  ${today.getMonth()}/${today.getDate()}/${today.getFullYear()}</h>`;
+    dayView += `<h>${day}  ${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}</h>`;
 
     // list of events by time and give them lengths over the new table
     // shade in 30 min interval if there is 
