@@ -15,7 +15,7 @@ export function signInForm() {
         <button class="signUpButton">Sign Up</button>
 
         <form class="signInForm">
-            <label>Username:</label> <input id="user" ></input>
+            <label>Username:</label> <input id="user"></input>
             <label>Password:</label> <input id="password" type="password"></input>
             <button type="submit">Sign In</button>
         </form> 
@@ -66,8 +66,8 @@ export function signUpForm() {
 
         <form class="signUpForm">
             <label>Username:</label> <input id="user"></input>
-            <label>Password:</label> <input id="password"></input>
-            <label>Birthday:</label> <input id="birthday"></input>
+            <label>Password:</label> <input id="password" type="password"></input>
+            <label>Birthday:</label> <input id="birthday" placeholder="mm/dd/yyyy"></input>
             <label>Name:</label>     <input id="name"></input>
 
             <button type="submit">Create Account</button>
@@ -98,7 +98,7 @@ export async function signUpHandler(event) {
     let userName = $('#user').val();
     let name = $('#name').val();
     let password = $('#password').val();
-    let birthday = $('#birthday').val();
+    let birthday = new Date($('#birthday').val());
 
     // handler for submit button
     // then submit to server using axios 'create' method
@@ -108,7 +108,7 @@ export async function signUpHandler(event) {
     if(existing){
         signUpForm();
     } else {
-        signInForm();
+        signInSwitch();
     }
 }
 
