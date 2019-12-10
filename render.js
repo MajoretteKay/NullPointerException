@@ -14,11 +14,11 @@ export function signInForm() {
         <div><label>Don't Have An Account?</label>
         <button class="signUpButton">Sign Up</button></div>
 
-        <form class="signInForm">
+        <div><form class="signInForm">
             <label>Username:</label> <input id="user"></input>
             <label>Password:</label> <input id="password" type="password"></input>
             <button type="submit">Sign In</button>
-        </form> 
+        </form></div>
     <div>`;
 }
 
@@ -61,14 +61,14 @@ export function signUpForm() {
     <div id="signup">
         <h> Sign Up </h>
 
-        <label> Have An Account Already? </label>
-        <button class="signInButton">Sign In</button>
+        <div><label> Have An Account Already? </label>
+        <button class="signInButton">Sign In</button></div>
 
         <form class="signUpForm">
-            <label>Username:</label> <input id="user"></input>
-            <label>Password:</label> <input id="password" type="password"></input>
-            <label>Birthday:</label> <input id="birthday" placeholder="mm/dd/yyyy"></input>
-            <label>Name:</label>     <input id="name"></input>
+            <div><label>Username:</label> <input id="user"></input></div>
+            <div><label>Password:</label> <input id="password" type="password"></input></div>
+            <div><label>Birthday:</label> <input id="birthday" placeholder="mm/dd/yyyy"></input></div>
+            <div><label>Name:</label>     <input id="name"></input></div>
 
             <button type="submit">Create Account</button>
         </form>
