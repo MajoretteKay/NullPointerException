@@ -2,6 +2,8 @@
 import {setToken} from "../../Config/Token.js";
 import {getToken} from "../../Config/Token.js";
 
+let globalArr = [];
+let eventCount = 0;
 
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000"
@@ -171,10 +173,14 @@ export function renderDay() {
                 minutes = "30";
             }
             dayView += `<tr>
-            <th>${hour + ":" + minutes + time}</th>
-            <th><button>Edit</button>
-            <button>Delete</button></th>
-            </tr>`;
+            <th>${hour + ":" + minutes + time}</th>`;
+            for (let i = 0; i < globalArr.length; i++) { // how we generate events into calendar (hard coded currently)
+                let me = "MajoretteKay";
+                if (globalArr[i].user == me) {
+                    dayView += `<th><button>${globalArr[i].title}<br>${globalArr[i].begins} - ${globalArr[i].ends}<br>${globalArr[i].description}<br>${globalArr[i].location}</button></th>`
+                }
+            }
+            dayView += `</tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
                 hour = 1;
@@ -248,7 +254,12 @@ export async function addEvent(event) {
     let location = "" + $('input#location').val();
     let type = "" + $('input#type').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
-     
+
+    let user = "MajoretteKay"
+    globalArr.push(new Event(eventCount, user, title, date, begins, ends, type, description, location)); //puts into backend with axios
+    eventCount++; //increment new events
+    // id like to do an isMine element instead of user but im not sure how???
+    $('div#dayView').replaceWith(renderDay());
 
 }
 
@@ -298,9 +309,14 @@ export function changeView(event) {
                 minutes = "30";
             }
             dayView += `<tr>
-            <th>${hour + ":" + minutes + time}</th>
-            <th><button>Edit</button><button>Delete</button></th>
-            </tr>`;
+            <th>${hour + ":" + minutes + time}</th>`;
+            for (let i = 0; i < globalArr.length; i++) { // how we generate events into calendar (hard coded currently)
+                let me = "MajoretteKay";
+                if (globalArr[i].user == me) {
+                    dayView += `<th><button>${globalArr[i].title}<br>${globalArr[i].begins} - ${globalArr[i].ends}<br>${globalArr[i].description}<br>${globalArr[i].location}</button></th>`
+                }
+            }
+            dayView += `</tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
                 hour = 1;
