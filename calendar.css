@@ -48,8 +48,9 @@ header, h {
 }
 
 body {
-    background-image: url("images/grey-apple-keyboard-and-grey-ipad-196650.jpg");
+    background-image: url("images/pexels-photo-196650.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #dayView {
