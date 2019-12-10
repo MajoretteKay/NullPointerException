@@ -77,23 +77,21 @@ body {
 }
 
 #dayView {
-    max-height: 500px;
+    max-height: 720px;
     width: 33%;
     overflow-y: auto;
     float: left;
 }
 
 #dayView table {
-    height: 720px;
     width: 50%;
     background-color: rgb(255, 255, 255, .7);
 }
 
 #calendar {
-    max-height: 500px;
+    max-height: 720px;
     float: left;
     Width: 33%;
-<<<<<<< Updated upstream
     display: block;
     padding-top: 200px;
     
@@ -101,20 +99,14 @@ body {
 
 #calendar table {
     background-color: rgb(255, 255, 255, .7);
-=======
-    display: block; 
->>>>>>> Stashed changes
 }
 
 #weekly {
     float: left;
-    max-height: 500px;
+    max-height: 720px;
     width: 33%;
-<<<<<<< Updated upstream
     background-color: rgb(255, 255, 255, .7);
     padding-top: 30px;
-=======
->>>>>>> Stashed changes
 }
 
 
