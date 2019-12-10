@@ -12,6 +12,7 @@ header, h {
 
 #signin{
     text-align: center;
+    padding: 20px;
     width: 60%;
     margin: 50px;
     margin-left: auto;
@@ -34,6 +35,7 @@ header, h {
 
 #signup{
     text-align: center;
+    padding: 20px;
     width: 60%;
     margin: 50px;
     margin-left: auto;
