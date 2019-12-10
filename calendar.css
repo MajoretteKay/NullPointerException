@@ -36,14 +36,14 @@ h {
     background-color: rgb(255, 255, 255, .7);
 }
 
-#signin button{
+button{
     block-size: 20px;
     font-family: monospace;
     color: #000000;
     background-color: #c8d5b9;
 }
 
-#signin button:hover{
+button:hover{
     background-color: #8fc0a9;
 }
 
@@ -59,15 +59,14 @@ h {
     background-color: rgb(255, 255, 255, .7);
 }
 
-#signup button{
-    block-size: 20px;
-    font-family: monospace;
-    color: #000000;
-    background-color: #c8d5b9;
+#calendar {
+    font-size: 33px;
 }
 
-#signup button:hover{
-    background-color: #8fc0a9;
+#calendar button {
+    font-size: 20px;
+    width: 42px;
+    height: 28px;
 }
 
 body {
@@ -84,7 +83,6 @@ body {
 }
 
 #dayView table {
-    width: 50%;
     background-color: rgb(255, 255, 255, .7);
 }
 
@@ -108,7 +106,6 @@ body {
     background-color: rgb(255, 255, 255, .7);
     padding-top: 30px;
 }
-
 
 
 
