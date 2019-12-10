@@ -84,8 +84,6 @@ body {
 }
 
 #dayView table {
-    margin-left: auto;
-    margin-right: auto;
     height: 720px;
     width: 50%;
     background-color: rgb(255, 255, 255, .7);
