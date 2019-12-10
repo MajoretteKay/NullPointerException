@@ -9,10 +9,10 @@ export function signInForm() {
     // renders the sign in form
     return `
     <div id="signin">
-        <h> Sign In </h>
+        <div><h> Sign In </h></div>
 
-        <label>Don't Have An Account?</label>
-        <button class="signUpButton">Sign Up</button>
+        <div><label>Don't Have An Account?</label>
+        <button class="signUpButton">Sign Up</button></div>
 
         <form class="signInForm">
             <label>Username:</label> <input id="user"></input>
