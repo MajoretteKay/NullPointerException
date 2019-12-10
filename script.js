@@ -171,8 +171,8 @@ export function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
-            if (hour == 11 && min == 30 && time == "am") {
-                dayView += `<th><button>HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
+            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
+                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
             }
             dayView += `</tr>`;
             // event goes in empty th above
@@ -304,6 +304,9 @@ export function changeView(event) {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
+            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
+                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
+            }
             dayView += `</tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
@@ -406,7 +409,7 @@ export function newCalendar(event) {
     }
     } // change to buttons
     let calendar = `<div id="calendar">
-    <table>
+    <table align="center">
     <tr>
       <th colspan="7"><button class="shift" value="${prev}"> < </button>  ${remonth}  ${year}  <button class="shift" value="${next}"> > </button></th>
     </tr>
