@@ -216,20 +216,20 @@ export function renderWeek() {
 export function addEventsForm() {
     // button handler ability to create new events to give to axios/server
     let form = `<div id="eventForm"><form class="eventSubmit">
-    <label>Title:</label>
-    <input placeholder="Enter Title Here" id="title"></input>
-    <label>Enter The Date:</label>
-    <input placeholder="mm/dd/yyyy" id="date"></input>
-    <label>Beginning Time:</label>
-    <input id="begin" type="time"></input>
-    <label>Ending Time:</label>
-    <input id="end" type="time"></input>
-    <label>Enter Description:</label>
-    <textarea id="description"></textarea>
-    <label>Enter Location:</label>
-    <input id="location" placeholder="Genome G0100"></input>
-    <label>Select the Type of Event:</label>
-    <input id="type" placeholder="Homework"></input>
+    <div><label>Title:</label>
+    <input placeholder="Enter Title Here" id="title"></input></div>
+    <div><label>Enter The Date:</label>
+    <input placeholder="mm/dd/yyyy" id="date"></input></div>
+    <div><label>Beginning Time:</label>
+    <input id="begin" type="time"></input></div>
+    <div><label>Ending Time:</label>
+    <input id="end" type="time"></input></div>
+    <div><label>Enter Description:</label>
+    <textarea id="description"></textarea></div>
+    <div><label>Enter Location:</label>
+    <input id="location" placeholder="Genome G0100"></input></div>
+    <div><label>Select the Type of Event:</label>
+    <input id="type" placeholder="Homework"></input></div>
     <button type="submit"> Create </button></form></div>`;
     $('div#eventForm').replaceWith(form);
 
