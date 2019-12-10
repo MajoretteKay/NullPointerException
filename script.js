@@ -233,6 +233,11 @@ export function addEventsForm() {
     <input id="type" placeholder="Homework"></input></div>
     <button type="submit"> Create </button></form></div>`;
     $('div#eventForm').replaceWith(form);
+    let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
+    $("#type").autocomplete({
+        source: suggestions
+    });
+    
 
 
 }
@@ -448,10 +453,6 @@ export function newCalendar(event) {
     
 }
 
-export function autofill() {
-    let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
-
-}
 
 export async function statusCheck() {
     try {
