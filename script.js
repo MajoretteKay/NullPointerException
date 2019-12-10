@@ -83,7 +83,7 @@ export function renderCal() {
     }
     } // change to buttons
     let calendar = `<div id="calendar">
-    <table align="center" style="padding-top: 225px;">
+    <table align="center">
     <tr>
       <th colspan="7"><button class="shift" value="${prev}"> < </button>  ${remonth}  ${year}  <button class="shift" value="${next}"> > </button></th>
     </tr>

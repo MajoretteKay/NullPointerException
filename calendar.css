@@ -19,6 +19,8 @@ h {
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 900;
+    margin-left: 13%;
+    margin-right: auto;
 }
 
 
@@ -75,34 +77,39 @@ body {
 }
 
 #dayView {
-    height: 720px;
+    max-height: 500px;
     width: 33%;
     overflow-y: auto;
     float: left;
-    background-color: rgb(255, 255, 255, .7);
 }
 
 #dayView table {
+    margin-left: auto;
+    margin-right: auto;
     height: 720px;
     width: 50%;
-    float: center;
-    overflow-y: auto;
+    background-color: rgb(255, 255, 255, .7);
 }
 
 #calendar {
-    height: 720px;
+    max-height: 500px;
     float: left;
     Width: 33%;
     display: block;
-    background-color: rgb(255, 255, 255, .7);
+    padding-top: 200px;
     
+}
+
+#calendar table {
+    background-color: rgb(255, 255, 255, .7);
 }
 
 #weekly {
     float: left;
-    height: 720px;
+    max-height: 500px;
     width: 33%;
     background-color: rgb(255, 255, 255, .7);
+    padding-top: 30px;
 }
 
 
