@@ -215,6 +215,7 @@ export function renderWeek() {
     <script>
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>`;
+    //weather api above
     text += `</div>`;
     return text;
 }
@@ -268,26 +269,28 @@ export function changeView(event) {
     let newdate = new Date(event.target.value);
     let newday = newdate.getDay();
     let day = "";
-    if (newday == 0) { //switch case wasn't working for some reason
-        day = "Sunday";
-    }
-    if (newday == 1) { //switch case wasn't working for some reason
-        day = "Monday";
-    }
-    if (newday == 2) { //switch case wasn't working for some reason
-        day = "Tuesday";
-    }
-    if (newday == 3) { //switch case wasn't working for some reason
-        day = "Wednesday";
-    }
-    if (newday == 4) { //switch case wasn't working for some reason
-        day = "Thursday";
-    }
-    if (newday == 5) { //switch case wasn't working for some reason
-        day = "Friday";
-    }
-    if (newday == 6) { //switch case wasn't working for some reason
-        day = "Saturday";
+    switch(newday) {
+        case 0:
+            day = "Sunday";
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+            break;
     }
     dayView += `<h>${day}  ${newdate.getMonth()+1}/${newdate.getDate()}/${newdate.getFullYear()}</h>`;
 
@@ -450,14 +453,19 @@ export function newCalendar(event) {
         calendar+=`</tr>`;
     }
     calendar += `</table>`;
-    // above is a weather API script and html thats why it looks a hot mess
+
     calendar += `</div>`;
 
     $('div#calendar').replaceWith(calendar);
     
 }
 
-async function statusCheck() {
+export function autofill() {
+    let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
+
+}
+
+export async function statusCheck() {
     try {
         const res = await pubRoot.get(("/account/status"), {headers: {Authorization: `Bearer ${getToken()}`}});
         const data = res.data;
