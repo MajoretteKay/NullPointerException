@@ -12,7 +12,13 @@ header, h {
 
 #signin{
     text-align: center;
+    width: 60%;
     margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255, .7);
 }
 
 #signin button{
@@ -32,8 +38,7 @@ header, h {
     margin: 50px;
     border: 1px solid;
     border-radius: 10px;
-    background-color: seashell;
-    opacity: .7;
+    background-color: rgb(255, 255, 255, .7);
 }
 
 #signup button{
