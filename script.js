@@ -1,6 +1,8 @@
 // script for main app
 import {setToken} from "../../Config/Token.js";
 import {getToken} from "../../Config/Token.js";
+import { getUser } from "../../Config/User.js";
+import { setUser } from "./Config/User.js";
 
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000"
@@ -256,9 +258,32 @@ export async function addEvent(event) {
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
 
     // id like to do an isMine element instead of user but im not sure how???
+    addEventRequest(title, date, begins, ends, description, location, type);
     $('div#dayView').replaceWith(renderDay());
 
 }
+
+async function addEventRequest(title, date, begins, ends, description, location, type) {
+    try {
+        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/`, 
+            {data: {
+                "title": title,
+                "date": date,
+                "begins": begins,
+                "ends": ends,
+                "description": description,
+                "location": location,
+                "type": type
+            }},
+            {headers: {Authorization: `Bearer ${getToken()}`}}
+        );
+        return true;
+    } catch (error) {
+        console.log(error.response.data);
+        return false;
+    }
+}
+
 
 export function changeView(event) {
     let dayView = `<div id="dayView">`;
@@ -456,7 +481,7 @@ export function newCalendar(event) {
 
 export async function statusCheck() {
     try {
-        const res = await pubRoot.get(("/account/status"), {headers: {Authorization: `Bearer ${getToken()}`}});
+        const res = await pubRoot.get("/account/status", {headers: {Authorization: `Bearer ${getToken()}`}});
         const data = res.data;
         return data;
     } catch(error) {
@@ -467,6 +492,8 @@ export async function statusCheck() {
 
 export function logout() {
     window.location.href = "http://localhost:3001/index.html";
+    setToken("");
+    setUser("");
 }
 
 
@@ -474,9 +501,9 @@ export async function renderSite() {
     //renders the calendar and forms and views
     const $root = $('#root');
 
-    //window.setInterval(function(){
-    //   const loggedIn = statusCheck();
-    //}, 5000);
+    window.setInterval(function(){
+       const loggedIn = statusCheck();
+    }, 5000);
 
     $root.append(renderCal());
     $root.append(renderDay());

@@ -1,2 +1,17 @@
 {
+  "GoldenLovers": {
+    "2020": {
+      "9": {
+        "10": {
+          "title": "Training for G1",
+          "date": "2020-10-10T04:00:00.000Z",
+          "begins": "00:00",
+          "ends": "12:59",
+          "description": "getting swol for my love",
+          "location": "Nihon",
+          "type": "Homework"
+        }
+      }
+    }
+  }
 }

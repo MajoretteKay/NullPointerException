@@ -1,5 +1,6 @@
 // script for signing up and in
 import {setToken} from "../../Config/Token.js";
+import { setUser } from "../../Config/User.js";
 
 const pubRoot = new axios.create({
     baseURL: "http://localhost:3000"
@@ -31,6 +32,7 @@ async function signInRequest(username, password) {
 
         const jwt = res.data.jwt;
         setToken(jwt)
+        setUser(username);
         return true;
     } catch (error) {
         alert(error.response.data["msg"]);
