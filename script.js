@@ -175,6 +175,7 @@ export function renderDay() {
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
 
+
             getEvents(today).then(function(promise){
                 promise.data.result.forEach(function (element){
                     dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
@@ -344,7 +345,7 @@ export function changeView(event) {
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
             if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
-                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
+                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button><div id="eventDiv"></div></th>`
             }
             dayView += `</tr>`;
             // event goes in empty th above
@@ -510,7 +511,7 @@ export function goTo() {
 }
 
 export function editDel() {
-    let text = `<p>Edit or Delete Event?</p><button>Edit</button><button>Delete</button>`;
+    replace('div#eventDiv').html(`<p>Edit or Delete Event?</p><button>Edit</button><button>Delete</button>`);
 }
 
 
