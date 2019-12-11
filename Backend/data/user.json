@@ -40,6 +40,24 @@
               "description": "Derp",
               "location": "G100",
               "type": "Homework"
+            },
+            {
+              "title": "HW2",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "06:00",
+              "ends": "06:30",
+              "description": "Who makes homework due at 5am",
+              "location": "G100",
+              "type": "Homework"
+            },
+            {
+              "title": "Nighttime",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "20:00",
+              "ends": "21:00",
+              "description": "goodnight",
+              "location": "Parker",
+              "type": "Sleep"
             }
           ]
         }
