@@ -175,7 +175,8 @@ export async function renderDay() {
             <th>${hour + ":" + minutes + time}</th>`;
             const result = await axios({
                 method: 'GET',
-                url: 'https://locahlhost:3001/user/'+ getUser() +'/'+today.getFullYear()+'/'+today.getMonth()+'/'+today.getDate()+'/Events',
+                url: `https://localhost:3000/user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`,
+                headers: {Authorization: `Bearer ${getToken()}`}
             });
             for(let j = 0; j < result.data.length; j++) {
                 if (getUser() == result.data[j].user) {

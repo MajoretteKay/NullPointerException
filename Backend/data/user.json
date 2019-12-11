@@ -26,5 +26,24 @@
         }
       }
     }
+  },
+  "majorettekay": {
+    "2019": {
+      "11": {
+        "11": {
+          "Events": [
+            {
+              "title": "HW1",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "11:00",
+              "ends": "12:00",
+              "description": "Derp",
+              "location": "G100",
+              "type": "Homework"
+            }
+          ]
+        }
+      }
+    }
   }
 }
