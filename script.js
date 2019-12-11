@@ -173,6 +173,9 @@ export function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
+            for(let j = 0; j < 1; j++) {
+
+            }
             if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
                 dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
             }
@@ -265,7 +268,7 @@ export async function addEvent(event) {
 
 async function addEventRequest(title, date, begins, ends, description, location, type) {
     try {
-        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}/`, 
+        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/`, 
             {data: {
                 "title": title,
                 "date": date,
@@ -501,9 +504,9 @@ export async function renderSite() {
     //renders the calendar and forms and views
     const $root = $('#root');
 
-    window.setInterval(function(){
-       const loggedIn = statusCheck();
-    }, 5000);
+    //window.setInterval(function(){
+    //   const loggedIn = statusCheck();
+    //}, 5000);
 
     $root.append(renderCal());
     $root.append(renderDay());
