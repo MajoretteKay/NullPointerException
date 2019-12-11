@@ -258,9 +258,32 @@ export async function addEvent(event) {
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
 
     // id like to do an isMine element instead of user but im not sure how???
+    addEventRequest(title, date, begins, ends, description, location, type);
     $('div#dayView').replaceWith(renderDay());
 
 }
+
+async function addEventRequest(title, date, begins, ends, description, location, type) {
+    try {
+        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/`, 
+            {data: {
+                "title": title,
+                "date": date,
+                "begins": begins,
+                "ends": ends,
+                "description": description,
+                "location": location,
+                "type": type
+            }},
+            {headers: {Authorization: `Bearer ${getToken()}`}}
+        );
+        return true;
+    } catch (error) {
+        console.log(error.response.data);
+        return false;
+    }
+}
+
 
 export function changeView(event) {
     let dayView = `<div id="dayView">`;
