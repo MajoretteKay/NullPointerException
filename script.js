@@ -493,20 +493,23 @@ export async function statusCheck() {
 
 }
 
-export function logout() {
-    window.location.href = "http://localhost:3001/index.html";
+export function logout(event) {
     setToken("");
     setUser("");
+    window.location.href = "http://localhost:3001/index.html";
 }
 
 
 export async function renderSite() {
     //renders the calendar and forms and views
+    const $banner = $('#banner');
     const $root = $('#root');
 
-    //window.setInterval(function(){
-    //   const loggedIn = statusCheck();
-    //}, 5000);
+    $banner.on("click", ".logout", logout);
+
+    window.setInterval(function(){
+      const loggedIn = statusCheck();
+    }, 5000);
 
     $root.append(renderCal());
     $root.append(renderDay());
@@ -514,7 +517,6 @@ export async function renderSite() {
 
     $root.on("click", ".eventButton", addEventsForm);
     $root.on("submit", ".eventSubmit", addEvent);
-    $root.on("click", ".logout", logout);
     $root.on("click", ".shift", newCalendar);
     $root.on("click", ".date", changeView);
     
