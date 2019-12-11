@@ -268,16 +268,16 @@ export async function addEvent(event) {
 
 async function addEventRequest(title, date, begins, ends, description, location, type) {
     try {
-        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/`, 
-            {data: {
+        const res = await pubRoot.post(`/user/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
+            {data: [{
                 "title": title,
                 "date": date,
                 "begins": begins,
                 "ends": ends,
                 "description": description,
                 "location": location,
-                "type": type
-            }},
+                "type": type}],
+             type: "merge"},
             {headers: {Authorization: `Bearer ${getToken()}`}}
         );
         return true;

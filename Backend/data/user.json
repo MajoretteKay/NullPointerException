@@ -1,2 +1,30 @@
 {
+  "goldenlovers": {
+    "2019": {
+      "11": {
+        "11": {
+          "Events": [
+            {
+              "title": "Vape",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "15:00",
+              "ends": "16:00",
+              "description": "Erry day",
+              "location": "Everywhere",
+              "type": "Homework"
+            },
+            {
+              "title": "Lift",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "18:00",
+              "ends": "19:00",
+              "description": "Leg day",
+              "location": "SRC",
+              "type": "Training"
+            }
+          ]
+        }
+      }
+    }
+  }
 }
