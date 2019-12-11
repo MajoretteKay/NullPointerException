@@ -265,7 +265,7 @@ export async function addEvent(event) {
 
 async function addEventRequest(title, date, begins, ends, description, location, type) {
     try {
-        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/`, 
+        const res = await pubRoot.post(`/private/${getUser()}/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}/`, 
             {data: {
                 "title": title,
                 "date": date,
