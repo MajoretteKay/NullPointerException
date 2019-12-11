@@ -122,8 +122,9 @@ export function renderCal() {
     //renders a monthly view of everything event you have on what days
 }
 
-export async function renderDay() {
+export function renderDay() {
     //renders what you have due today
+    
     let dayView = `<div id="dayView">`;
     let today = new Date();
     let theday = today.getDay();
@@ -151,12 +152,12 @@ export async function renderDay() {
             day = "Saturday";
             break;
     }
-
+    
     dayView += `<h>${day}  ${today.getMonth()+1}/${today.getDate()}/${today.getFullYear()}</h>`;
 
     // list of events by time and give them lengths over the new table
     // shade in 30 min interval if there is 
-        dayView += `<table>`;
+    dayView += `<table>`;
         //add for loop for shading in events column
         let hour = 12;
         let min = 0;
@@ -173,17 +174,8 @@ export async function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
-            const result = await axios({
-                method: 'GET',
-                url: `https://localhost:3000/user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`,
-                headers: {Authorization: `Bearer ${getToken()}`}
-            });
-            for(let j = 0; j < result.data.length; j++) {
-                if (getUser() == result.data[j].user) {
-                    if (true) { //hardcoded event button
-                        dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
-                    }
-                }
+            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
+                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
             }
             dayView += `</tr>`;
             // event goes in empty th above
@@ -201,6 +193,7 @@ export async function renderDay() {
         }
         dayView += `</table>`;
         dayView += `</div>`;
+
         return dayView;
     }
 
@@ -505,13 +498,21 @@ export function logout(event) {
     window.location.href = "http://localhost:3001/index.html";
 }
 
+export function goTo() {
+    window.location.href = "http://localhost:3001/profile.html";
+}
+
+export function editDel() {
+    let text = `<p>Edit or Delete Event?</p><button>Edit</button><button>Delete</button>`;
+}
+
 
 export async function renderSite() {
     //renders the calendar and forms and views
     const $banner = $('#banner');
     const $root = $('#root');
 
-    $banner.on("click", ".logout", logout);
+    
 
     window.setInterval(function(){
       const loggedIn = statusCheck();
@@ -525,6 +526,9 @@ export async function renderSite() {
     $root.on("submit", ".eventSubmit", addEvent);
     $root.on("click", ".shift", newCalendar);
     $root.on("click", ".date", changeView);
+    $banner.on("click", ".profile", goTo);
+    $root.on("click", ".event", editDel);
+    $banner.on("click", ".logout", logout);
     
 }
 
