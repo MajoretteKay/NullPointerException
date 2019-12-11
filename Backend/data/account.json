@@ -27,6 +27,13 @@
         "firstName": "Liza",
         "birthday": "1998-09-29T00:00:00.000Z"
       }
+    },
+    "majorettekay": {
+      "passwordHash": "$2a$10$kW612moSZpTMWm/HpE3IROBd5NZmDmtThZ06QDYqIukVZlZIBLtiO",
+      "data": {
+        "firstName": "Kayleigh Olecki",
+        "birthday": "1998-11-08T05:00:00.000Z"
+      }
     }
   }
 }

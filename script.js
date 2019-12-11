@@ -122,7 +122,7 @@ export function renderCal() {
     //renders a monthly view of everything event you have on what days
 }
 
-export function renderDay() {
+export async function renderDay() {
     //renders what you have due today
     let dayView = `<div id="dayView">`;
     let today = new Date();
@@ -173,11 +173,16 @@ export function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
-            for(let j = 0; j < 1; j++) {
-
-            }
-            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
-                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
+            const result = await axios({
+                method: 'GET',
+                url: 'https://locahlhost:3001/user/'+ getUser() +'/'+today.getFullYear()+'/'+today.getMonth()+'/'+today.getDate()+'/Events',
+            });
+            for(let j = 0; j < result.data.length; j++) {
+                if (getUser() == result.data[j].user) {
+                    if (true) { //hardcoded event button
+                        dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
+                    }
+                }
             }
             dayView += `</tr>`;
             // event goes in empty th above
