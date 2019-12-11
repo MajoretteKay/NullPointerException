@@ -10,16 +10,16 @@ export function signInForm() {
     // renders the sign in form
     return `
     <div id="signin">
-        <h> Sign In </h>
+        <div><h> Sign In </h></div>
 
-        <label>Don't Have An Account?</label>
-        <button class="signUpButton">Sign Up</button>
+        <div><label>Don't Have An Account?</label>
+        <button class="signUpButton">Sign Up</button></div>
 
-        <form class="signInForm">
-            <label>Username:</label> <input id="user" ></input>
+        <div><form class="signInForm">
+            <label>Username:</label> <input id="user"></input>
             <label>Password:</label> <input id="password" type="password"></input>
             <button type="submit">Sign In</button>
-        </form> 
+        </form></div>
     <div>`;
 }
 
@@ -63,14 +63,14 @@ export function signUpForm() {
     <div id="signup">
         <h> Sign Up </h>
 
-        <label> Have An Account Already? </label>
-        <button class="signInButton">Sign In</button>
+        <div><label> Have An Account Already? </label>
+        <button class="signInButton">Sign In</button></div>
 
         <form class="signUpForm">
-            <label>Username:</label> <input id="user"></input>
-            <label>Password:</label> <input id="password"></input>
-            <label>Birthday:</label> <input id="birthday"></input>
-            <label>Name:</label>     <input id="name"></input>
+            <div><label>Username:</label> <input id="user"></input></div>
+            <div><label>Password:</label> <input id="password" type="password"></input></div>
+            <div><label>Birthday:</label> <input id="birthday" placeholder="mm/dd/yyyy"></input></div>
+            <div><label>Name:</label>     <input id="name"></input></div>
 
             <button type="submit">Create Account</button>
         </form>
@@ -100,7 +100,7 @@ export async function signUpHandler(event) {
     let userName = $('#user').val();
     let name = $('#name').val();
     let password = $('#password').val();
-    let birthday = $('#birthday').val();
+    let birthday = new Date($('#birthday').val());
 
     // handler for submit button
     // then submit to server using axios 'create' method
@@ -110,7 +110,7 @@ export async function signUpHandler(event) {
     if(existing){
         signUpForm();
     } else {
-        signInForm();
+        signInSwitch();
     }
 }
 

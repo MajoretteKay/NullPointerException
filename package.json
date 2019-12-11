@@ -5,7 +5,8 @@
   "main": "event.js",
   "dependencies": {
     "browser-sync": "^2.26.7",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1"
   },
   "devDependencies": {},
   "scripts": {

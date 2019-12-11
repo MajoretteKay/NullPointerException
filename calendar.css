@@ -1,4 +1,16 @@
-header, h {
+header{
+    text-align: center;
+    line-height: 60px;
+    height: 100%;
+    background-color: #faf3dd;
+    color: #000000;
+    font-size: 40px;
+    font-family: copperplate;
+    font-weight: 900;
+    padding: 10px;
+}
+
+h {
     text-align: center;
     line-height: 60px;
     height: 100%;
@@ -7,76 +19,93 @@ header, h {
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 #signin{
     text-align: center;
+    padding: 20px;
+    width: 60%;
     margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255, .7);
 }
 
-#signin button{
+button{
     block-size: 20px;
     font-family: monospace;
     color: #000000;
     background-color: #c8d5b9;
 }
 
-#signin button:hover{
+button:hover{
     background-color: #8fc0a9;
 }
 
 #signup{
     text-align: center;
+    padding: 20px;
     width: 60%;
     margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid;
     border-radius: 10px;
-    background-color: seashell;
-    opacity: .7;
-}
-
-#signup button{
-    block-size: 20px;
-    font-family: monospace;
-    color: #000000;
-    background-color: #c8d5b9;
-}
-
-#signup button:hover{
-    background-color: #8fc0a9;
-}
-
-body {
-    background-image: url("images/flat-lay-of-a-calendar-on-the-table.jpg");
-    background-repeat: no-repeat;
-}
-
-#dayView {
-    height: 720px;
-    width: 33%;
-    overflow-y: auto;
-    float: left;
-    
+    background-color: rgb(255, 255, 255, .7);
 }
 
 #calendar {
-    height: 720px;
+    font-size: 33px;
+}
+
+#calendar button {
+    font-size: 20px;
+    width: 42px;
+    height: 28px;
+}
+
+body {
+    background-image: url("images/pexels-photo-196650.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#dayView {
+    max-height: 720px;
+    width: 33%;
+    overflow-y: auto;
+    float: left;
+}
+
+#dayView table {
+    background-color: rgb(255, 255, 255, .7);
+}
+
+#calendar {
+    max-height: 720px;
     float: left;
     Width: 33%;
     display: block;
+    padding-top: 200px;
     
-    
+}
+
+#calendar table {
+    background-color: rgb(255, 255, 255, .7);
 }
 
 #weekly {
     float: left;
-    height: 720px;
+    max-height: 720px;
     width: 33%;
-    
+    background-color: rgb(255, 255, 255, .7);
+    padding-top: 30px;
 }
 
-table {
-    padding-bottom: 150px;
-    
-}
+
+
