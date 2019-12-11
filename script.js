@@ -470,7 +470,7 @@ export function newCalendar(event) {
             } else {
                 
                 if (day == today.getDate() && month == today.getMonth() && year == today.getFullYear()) {
-                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: red;" class="date">${day}</button></th>`
+                    calendar += `<th><button value="${new Date(year, month, day)}" style="color: #E6E9C0;" class="date">${day}</button></th>`
                 } else {
                     calendar += `<th><button value="${new Date(year, month, day)}" class="date">${day}</button></th>`;
                 }
