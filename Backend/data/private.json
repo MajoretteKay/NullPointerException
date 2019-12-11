@@ -1,2 +1,11 @@
 {
+  "event": {
+    "title": "Vaping",
+    "date": "1996-10-05T04:00:00.000Z",
+    "begins": "00:00",
+    "ends": "12:59",
+    "description": "vape every day",
+    "location": "everywhere",
+    "type": "Homework"
+  }
 }

@@ -1,6 +1,8 @@
 // script for main app
 import {setToken} from "../../Config/Token.js";
 import {getToken} from "../../Config/Token.js";
+import { getUser } from "../../Config/User.js";
+import { setUser } from "./Config/User.js";
 
 
 const pubRoot = new axios.create({
@@ -221,13 +223,35 @@ export async function addEvent(event) {
     let location = "" + $('input#location').val();
     let type = "" + $('input#type').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
-     
-    alert(begins);
+    
+    let eventAdded = addEventRequest(title, date, begins, ends, description, location, type);
+
+}
+
+async function addEventRequest(title, date, begins, ends, description, location, type) {
+    try {
+        const res = await pubRoot.post("/private/event/", 
+            {data: {
+                "title": title,
+                "date": date,
+                "begins": begins,
+                "ends": ends,
+                "description": description,
+                "location": location,
+                "type": type
+            }},
+            {headers: {Authorization: `Bearer ${getToken()}`}}
+        );
+        return true;
+    } catch (error) {
+        console.log(error.response.data);
+        return false;
+    }
 }
 
 async function statusCheck() {
     try {
-        const res = await pubRoot.get(("/account/status"), {headers: {Authorization: `Bearer ${getToken()}`}});
+        const res = await pubRoot.get("/account/status", {headers: {Authorization: `Bearer ${getToken()}`}});
         const data = res.data;
         return data;
     } catch(error) {
@@ -238,6 +262,8 @@ async function statusCheck() {
 
 function logout() {
     window.location.href = "http://localhost:3001/index.html";
+    setToken("");
+    setUser("");
 }
 
 
@@ -245,9 +271,9 @@ export async function renderSite() {
     //renders the calendar and forms and views
     const $root = $('#root');
 
-    //window.setInterval(function(){
-    //    const loggedIn = statusCheck();
-    //}, 5000);
+    window.setInterval(function(){
+       const loggedIn = statusCheck();
+    }, 5000);
 
     $root.append(renderCal());
     $root.append(renderDay());
