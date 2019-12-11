@@ -3,13 +3,16 @@ import {getToken} from "../../Config/Token.js";
 import { getUser } from "../../Config/User.js";
 import { setUser } from "./Config/User.js";
 
+const pubRoot = new axios.create({
+    baseURL: "http://localhost:3000"
+});
 
 export function renderUserAccountEditForm() {
     return `
     <div id="signup">
         <h>Account Information</h>
 
-        <div><label>User</label>
+        <div><label>${getUser()}</label>
         <button class="backButton">Back</button></div>
 
         <form class="signUpForm">
@@ -32,6 +35,7 @@ export async function statusCheck() {
         const data = res.data;
         return data;
     } catch(error) {
+        alert(getToken());
         logout();
     }
 
@@ -39,6 +43,7 @@ export async function statusCheck() {
 
 export async function renderSite() {
     const $root = $(`#root`);
+
 
     window.setInterval(function() {
         const loggedIn = statusCheck();
