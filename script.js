@@ -174,9 +174,16 @@ export function renderDay() {
             }
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
-            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
-                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
-            }
+
+            getEvents(today).then(function(promise){
+                promise.data.result.forEach(function (element){
+                    dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button></th>`
+                });
+            });
+            // if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
+            //     dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button><div id="eventDiv"></div></th>`
+            // }
+
             dayView += `</tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
@@ -530,6 +537,17 @@ export async function renderSite() {
     $root.on("click", ".event", editDel);
     $banner.on("click", ".logout", logout);
     
+}
+
+async function getEvents(today) {
+    try {
+        return await pubRoot.get(`/user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
+            {headers: {Authorization: `Bearer ${getToken()}`}}
+        );
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
 }
 
 $(function() {
