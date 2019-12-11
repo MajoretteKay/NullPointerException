@@ -20,6 +20,13 @@
         "firstName": "Kenny",
         "birthday": "10101999"
       }
+    },
+    "liza": {
+      "passwordHash": "$2a$10$Zi0fzvE/7KJN1il.X2NFZOhHwIkvwcOX65.TjO/unTZoGpSiZ9Qou",
+      "data": {
+        "firstName": "Liza",
+        "birthday": "1998-09-29T00:00:00.000Z"
+      }
     }
   }
 }
