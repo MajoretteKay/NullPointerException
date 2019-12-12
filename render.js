@@ -86,7 +86,8 @@ async function createUserAccount(name, pass, username, birthday) {
                 "firstName": name,
                 "birthday": birthday
             } 
-        })
+        });
+
         return false;
     } catch (error) {
         console.log(error.response.data);
@@ -105,6 +106,8 @@ export async function signUpHandler(event) {
     // handler for submit button
     // then submit to server using axios 'create' method
     var existing = createUserAccount(name, password, userName, birthday);
+
+
     
     // upon creating new account will switch back to sign in
     if(existing){

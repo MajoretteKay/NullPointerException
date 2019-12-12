@@ -564,6 +564,7 @@ export function logout(event) {
 }
 
 export function goTo() {
+
     window.location.href = "http://localhost:3001/profile.html";
 }
 

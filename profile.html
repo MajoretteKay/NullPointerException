@@ -8,22 +8,25 @@
 
         <link rel="stylesheet" href="calendar.css" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- normal imports-->
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="node_modules/axios/dist/axios.js"></script>
+        <!-- main javascript -->
+        <script src="profile.js" type="module"></script>
     </head>
 
     <body>
         <div id="banner">
-        <header>College Cram <button class="logout" style="float: right;">Logout</button><button class="calendar" style="float: right;">Calendar</button></header>
+        <header>
+            College Cram
+            <button class="logout" style="float: right;">Logout</button>
+            <button class="calendar" style="float: right;">Calendar</button>
+        </header>
         </div>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dv13gl0a-FA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="motivation" width="560" height="315" src="https://www.youtube.com/embed/dv13gl0a-FA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         <div id="root"></div>
-    <head>
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="node_modules/axios/dist/axios.js"></script>
-    
-    </head>
-       
     </body>
 </html>
