@@ -1,25 +1,26 @@
 {
-  "navyjaker": {
+  "goldenlovers": {
     "2019": {
       "11": {
         "11": {
-<<<<<<< Updated upstream
-          "Events": []
-        }
-      }
-    },
-    "NaN": {
-      "NaN": {
-        "NaN": {
           "Events": [
             {
-              "title": "",
-              "date": null,
-              "begins": "",
-              "ends": "",
-              "description": "",
-              "location": "",
-              "type": ""
+              "title": "Vape",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "15:00",
+              "ends": "16:00",
+              "description": "Erry day",
+              "location": "Everywhere",
+              "type": "Homework"
+            },
+            {
+              "title": "Lift",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "18:00",
+              "ends": "19:00",
+              "description": "Leg day",
+              "location": "SRC",
+              "type": "Training"
             }
           ]
         }
@@ -38,38 +39,18 @@
               "ends": "12:00",
               "description": "Derp",
               "location": "G100",
-=======
-          "Events": [
-            {
-              "title": "Taco Tuesday",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "14:30",
-              "ends": "14:30",
-              "description": "Tacos",
-              "location": "CVRC",
               "type": "Homework"
             },
             {
-              "title": "Taco Tuesday",
+              "title": "HW2",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "12:00",
-              "ends": "12:30",
-              "description": "Let's eat some tacos",
-              "location": "CVRC",
->>>>>>> Stashed changes
+              "begins": "06:00",
+              "ends": "06:30",
+              "description": "Who makes homework due at 5am",
+              "location": "G100",
               "type": "Homework"
             },
             {
-              "title": "ENGL 514",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "11:00",
-              "ends": "00:00",
-              "description": "This is a really long message to test something",
-              "location": "Genome G100",
-              "type": "Homework"
-            },
-            {
-<<<<<<< Updated upstream
               "title": "Nighttime",
               "date": "2019-12-11T05:00:00.000Z",
               "begins": "20:00",
@@ -77,6 +58,24 @@
               "description": "goodnight",
               "location": "Parker",
               "type": "Sleep"
+            },
+            {
+              "title": "litty",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
+            },
+            {
+              "title": "Nighttime",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "13:30",
+              "ends": "13:30",
+              "description": "hahaha",
+              "location": "no",
+              "type": "Interview"
             }
           ]
         },
@@ -90,15 +89,50 @@
               "description": "LALA",
               "location": "Bed",
               "type": "Sleep"
-=======
-              "title": "ENGL 514",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "10:00",
-              "ends": "10:30",
-              "description": "test",
-              "location": "CVRC",
-              "type": "Quiz"
->>>>>>> Stashed changes
+            },
+            {
+              "title": "noodles",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "07:00",
+              "ends": "07:00",
+              "description": "dumby thicc",
+              "location": "G100",
+              "type": "Project"
+            },
+            {
+              "title": "HW1",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "09:00",
+              "ends": "11:00",
+              "description": "dumb",
+              "location": "G100",
+              "type": "Homework"
+            }
+          ]
+        }
+      }
+    },
+    "NaN": {
+      "NaN": {
+        "NaN": {
+          "Events": [
+            {
+              "title": "",
+              "date": null,
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
+            },
+            {
+              "title": "",
+              "date": null,
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
             }
           ]
         }
