@@ -125,7 +125,7 @@ export function renderCal() {
 export function renderDay() {
     //renders what you have due today
     
-    let dayView = `<div id="dayView">`;
+    var dayView = `<div id="dayView">`;
     let today = new Date();
     let theday = today.getDay();
     let day = "";
@@ -175,9 +175,15 @@ export function renderDay() {
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>`;
 
+            // const response = getEvents(today).then(function(promise) {
+            //     return promise[0].begins;
+            // });
 
-            getEvents(today).then(function(promise){
-                promise.data.result.forEach(function (element){
+            const response = getEvents(today).then(function(promise){
+                let length = promise.length;
+                let j;
+                let dayView = ``;
+                for(j = 0; j < length; j++) {
                     let timeString;
                     if (i >= 20) {
                         if (i % 2 == 0) {
@@ -196,11 +202,12 @@ export function renderDay() {
                             timeString = "0"+(i-1)/2+":30";
                         }
                     } 
-                    if (element.begins == timeString) {
+                    if (promise[j].begins == timeString) {
                         alert("match found");                    
-                        dayView += `<th><button class="event">${element.title}: ${element.description}. ${element.begins} - ${element.ends}. Location: ${element.location}</button></th>`;
+                        dayView += `<th><button class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button></th>`;
                     }
-                });
+
+                }
             });
             
             if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
@@ -565,9 +572,10 @@ export async function renderSite() {
 
 async function getEvents(today) {
     try {
-        return await pubRoot.get(`/user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
+        const response = await pubRoot.get(`/user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
             {headers: {Authorization: `Bearer ${getToken()}`}}
         );
+        return response.data.result;
     } catch (error) {
         console.log(error);
         return false;
