@@ -411,7 +411,7 @@ export function changeView(event) {
                     }
                 } 
                 if (promise[j].begins == timeString) {                  
-                    $('div#'+i).html(`<button id="${i}" value="${j}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
                 }
 
             }
@@ -588,7 +588,7 @@ export function editEvent(event) {
     <input id="location2" placeholder="Genome G0100"></input></div>
     <div><label>Select the Type of Event:</label>
     <input id="type2" placeholder="Homework"></input></div>
-    <button type="submit"> Edit </button></form></div>`;
+    <button type="submit" value="${event.target.value}"> Edit </button></form></div>`;
     $('div#'+event.target.id).replaceWith(form);
     let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
     $("#type").autocomplete({
