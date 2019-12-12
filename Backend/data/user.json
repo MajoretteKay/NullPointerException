@@ -67,6 +67,15 @@
               "description": "",
               "location": "",
               "type": ""
+            },
+            {
+              "title": "Nighttime",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "13:30",
+              "ends": "13:30",
+              "description": "hahaha",
+              "location": "no",
+              "type": "Interview"
             }
           ]
         },
