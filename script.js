@@ -572,11 +572,17 @@ export function editDel(event) {
 }
 
 export function editEvent(event) {
+    // request to delete the event here
+    $('div#dayView').replaceWith(renderDay());
+}
 
+export function editEventForm() {
+    let text = `<div id="">`;
 }
 
 export function deleteEvent(event) {
-
+    // request to edit the event here
+    $('div#dayView').replaceWith(renderday());
 }
 
 export function cancelbutton(event) {
