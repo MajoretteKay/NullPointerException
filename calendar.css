@@ -70,6 +70,7 @@ button:hover{
     font-family: copperplate, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
     width: 42px;
     height: 28px;
+    padding: 0px;
 }
 
 body {
