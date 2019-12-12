@@ -175,6 +175,7 @@ export function renderDay() {
             dayView += `<tr>
             <th>${hour + ":" + minutes + time}</th>
             <th><div id="${i}"></div></th></tr>`;
+
             
             // event goes in empty th above
             if (min == 30 && hour == 12) {
@@ -218,9 +219,8 @@ export function renderDay() {
                         timeString = "0"+(i-1)/2+":30";
                     }
                 } 
-                if (promise[j].begins == timeString) {
-                    alert("match found");                    
-                    $('div#'+i).replaceWith(`<button class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                if (promise[j].begins == timeString) {                  
+                    $('div#'+i).html(`<button id="${i}" value="${j}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
                 }
 
             }
@@ -366,11 +366,8 @@ export function changeView(event) {
                 minutes = "30";
             }
             dayView += `<tr>
-            <th>${hour + ":" + minutes + time}</th>`;
-            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
-                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button><div id="eventDiv"></div></th>`
-            }
-            dayView += `</tr>`;
+            <th>${hour + ":" + minutes + time}</th>
+            <th><div id="${i}"></div></th></tr>`;
             // event goes in empty th above
             if (min == 30 && hour == 12) {
                 hour = 1;
@@ -388,6 +385,43 @@ export function changeView(event) {
         dayView += `</div>`;
 
         $('div#dayView').replaceWith(dayView);
+
+        const response = getEvents(newdate).then(function(promise){
+            let length = promise.length;
+            let j;
+            let dayView = ``;
+            for(let i = 0; i < 48; i++) {
+            for(j = 0; j < length; j++) {
+                let timeString;
+                if (i >= 20) {
+                    if (i % 2 == 0) {
+                        timeString = i/2+":00";
+                    } else {
+                        timeString = (i-1)/2+":30";
+                    }
+                } else if (i < 20) {
+                    if (i == 0) {
+                       timeString = "00:00";
+                    } else if (i == 1) {
+                        timeString = "00:30";
+                    } else if (i % 2 == 0) {
+                        timeString = "0"+i/2+":00";
+                    } else {
+                        timeString = "0"+(i-1)/2+":30";
+                    }
+                } 
+                if (promise[j].begins == timeString) {                  
+                    $('div#'+i).html(`<button id="${i}" value="${j}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                }
+
+            }
+        }
+        }).catch(function(error) {
+            // no promsises
+        });
+    
+
+        
 
 
 }
@@ -533,10 +567,21 @@ export function goTo() {
     window.location.href = "http://localhost:3001/profile.html";
 }
 
-export function editDel() {
-    replace('div#eventDiv').html(`<p>Edit or Delete Event?</p><button>Edit</button><button>Delete</button>`);
+export function editDel(event) {
+    $('div#'+event.target.id).html(`<p id="${event.target.id}">Edit or Delete Event?</p><button id="${event.target.id}" value="${event.target.value}" class="edit">Edit</button><button id="${event.target.id}" value="${event.target.value}" class="delete">Delete</button><button class="cancel">Cancel</button>`);
 }
 
+export function editEvent(event) {
+
+}
+
+export function deleteEvent(event) {
+
+}
+
+export function cancelbutton(event) {
+    $('div#dayView').replaceWith(renderDay());
+}
 
 export async function renderSite() {
     //renders the calendar and forms and views
@@ -560,7 +605,10 @@ export async function renderSite() {
     $banner.on("click", ".profile", goTo);
     $root.on("click", ".event", editDel);
     $banner.on("click", ".logout", logout);
-    
+    $root.on("click", ".cancel", cancelbutton);
+    $root.on("click", ".edit", editEvent);
+    //$root.on("submit", ".form", undefined);
+    $root.on("click", ".delete", deleteEvent);
 }
 
 async function getEvents(today) {

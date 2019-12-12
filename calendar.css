@@ -80,7 +80,7 @@ body {
     max-height: 720px;
     width: 33%;
     overflow-y: auto;
-    float: left;
+    float: center;
 }
 
 #dayView table {
@@ -101,7 +101,7 @@ body {
 }
 
 #weekly {
-    float: left;
+    float: right;
     max-height: 720px;
     width: 33%;
     background-color: rgb(255, 255, 255, .7);
