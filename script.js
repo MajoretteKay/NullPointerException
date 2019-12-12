@@ -774,13 +774,13 @@ export async function editEventForm(event) {
         let length = promise.length;
         let i;
         for(i = 0; i < length; i++) {
-            console.log(promise[i]);
             if(promise[i] != undefined && promise[i].begins == timeString){
+                alert("deleting " + promise[i]);
                 promise.splice(i, 1);
             }
         }
         try {
-            alert(deleting)
+            alert("deleting");
             const res = await pubRoot.delete(`user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
                 {headers: {Authorization: `Bearer ${getToken()}`}}
             );
@@ -792,15 +792,24 @@ export async function editEventForm(event) {
         } catch (error) {
             console.log(error);
         }
-    }).catch(function(error){
-        alert(error);
-    });
-
-    // request to delete the event here
-    try {
-        alert("creating");
-        if(type == "Class"){
-            const res = await pubRoot.post(`public/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
+        // request to delete the event here
+        try {
+            alert("creating");
+            if(type == "Class"){
+                const res = await pubRoot.post(`public/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
+                    {data: [{
+                        "title": title,
+                        "date": date,
+                        "begins": begins,
+                        "ends": ends,
+                        "description": description,
+                        "location": location,
+                        "type": type}],
+                    type: "merge"},
+                    {headers: {Authorization: `Bearer ${getToken()}`}}
+                );
+            }
+            const res = await pubRoot.post(`user/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
                 {data: [{
                     "title": title,
                     "date": date,
@@ -812,22 +821,13 @@ export async function editEventForm(event) {
                 type: "merge"},
                 {headers: {Authorization: `Bearer ${getToken()}`}}
             );
+        } catch (error) {
+            console.log(error.response.data);
         }
-        const res = await pubRoot.post(`user/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
-            {data: [{
-                "title": title,
-                "date": date,
-                "begins": begins,
-                "ends": ends,
-                "description": description,
-                "location": location,
-                "type": type}],
-             type: "merge"},
-            {headers: {Authorization: `Bearer ${getToken()}`}}
-        );
-    } catch (error) {
-        console.log(error.response.data);
-    }
+    }).catch(function(error){
+        alert(error);
+    });
+
 
     $('div#dayView').replaceWith(renderDay());
 
