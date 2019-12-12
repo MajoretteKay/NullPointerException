@@ -10,6 +10,11 @@ header{
     padding: 10px;
 }
 
+header button{
+    font-size: large;
+    padding: 10px;
+}
+
 h {
     text-align: center;
     line-height: 60px;
@@ -110,6 +115,11 @@ body {
     padding-top: 30px;
     font-family: copperplate, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 120%;
+}
+
+#weekly button {
+    font-size: large;
+    padding: 10px;
 }
 
 #motivation {

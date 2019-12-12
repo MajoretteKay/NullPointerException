@@ -5,6 +5,7 @@
         "11": {
           "Events": [
             {
+<<<<<<< HEAD
               "title": "Vape",
               "date": "2019-12-11T05:00:00.000Z",
               "begins": "15:00",
@@ -39,11 +40,20 @@
               "ends": "12:00",
               "description": "Derp",
               "location": "G100",
+=======
+              "title": "Taco Tuesday",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "14:30",
+              "ends": "14:30",
+              "description": "Tacos",
+              "location": "CVRC",
+>>>>>>> cf7db99342881ab3a848f40a9830a29be5aedb99
               "type": "Homework"
             },
             {
               "title": "HW2",
               "date": "2019-12-11T05:00:00.000Z",
+<<<<<<< HEAD
               "begins": "06:00",
               "ends": "06:30",
               "description": "Who makes homework due at 5am",
@@ -124,6 +134,22 @@
               "description": "",
               "location": "",
               "type": ""
+=======
+              "begins": "12:00",
+              "ends": "12:30",
+              "description": "Let's eat some tacos",
+              "location": "CVRC",
+              "type": "Homework"
+            },
+            {
+              "title": "ENGL 514",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "11:00",
+              "ends": "00:00",
+              "description": "This is a really long message to test something",
+              "location": "Genome G100",
+              "type": "Homework"
+>>>>>>> cf7db99342881ab3a848f40a9830a29be5aedb99
             }
           ]
         }
