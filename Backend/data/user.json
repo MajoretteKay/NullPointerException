@@ -58,6 +58,15 @@
               "description": "goodnight",
               "location": "Parker",
               "type": "Sleep"
+            },
+            {
+              "title": "litty",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
             }
           ]
         },
@@ -71,6 +80,32 @@
               "description": "LALA",
               "location": "Bed",
               "type": "Sleep"
+            }
+          ]
+        }
+      }
+    },
+    "NaN": {
+      "NaN": {
+        "NaN": {
+          "Events": [
+            {
+              "title": "",
+              "date": null,
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
+            },
+            {
+              "title": "",
+              "date": null,
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
             }
           ]
         }

@@ -573,12 +573,47 @@ export function editDel(event) {
 }
 
 export function editEvent(event) {
-    // request to delete the event here
-    $('div#dayView').replaceWith(renderDay());
+    let form = `<div><form class="form">
+    <div><label>Title:</label>
+    <input placeholder="Enter Title Here" id="title2"></input></div>
+    <div><label>Enter The Date:</label>
+    <input placeholder="mm/dd/yyyy" id="date2"></input></div>
+    <div><label>Beginning Time:</label>
+    <input id="begin2" type="time"></input></div>
+    <div><label>Ending Time:</label>
+    <input id="end2" type="time"></input></div>
+    <div><label>Enter Description:</label>
+    <textarea id="description2"></textarea></div>
+    <div><label>Enter Location:</label>
+    <input id="location2" placeholder="Genome G0100"></input></div>
+    <div><label>Select the Type of Event:</label>
+    <input id="type2" placeholder="Homework"></input></div>
+    <button type="submit"> Edit </button></form></div>`;
+    $('div#'+event.target.id).replaceWith(form);
+    let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
+    $("#type").autocomplete({
+        source: suggestions
+    });
+    
 }
 
-export function editEventForm() {
-    let text = `<div id="">`;
+export function editEventForm(event) {
+    event.preventDefault();
+    
+    let title = $('input#title2').val();
+    let date = new Date($('input#date2').val()) // typing mm/dd/yyyy work for day at the moment'
+    let begins = $('input#begin2').val()
+    let ends = $('input#end2').val();
+    let description = "" + $('textarea#description2').val();
+    let location = "" + $('input#location2').val();
+    let type = "" + $('input#type2').val();
+    $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
+
+    // request to delete the event here
+    addEventRequest(title, date, begins, ends, description, location, type);
+    $('div#dayView').replaceWith(renderDay());
+    
+
 }
 
 export function deleteEvent(event) {
@@ -614,7 +649,7 @@ export async function renderSite() {
     $banner.on("click", ".logout", logout);
     $root.on("click", ".cancel", cancelbutton);
     $root.on("click", ".edit", editEvent);
-    //$root.on("submit", ".form", undefined);
+    $root.on("submit", ".form", editEventForm);
     $root.on("click", ".delete", deleteEvent);
 }
 
