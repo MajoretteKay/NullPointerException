@@ -538,7 +538,6 @@ export async function week() {
         const response = getEvents(newdate).then(function(promise){
             for (let j = 0; j < promise.length; j++) {
             let date = new Date(promise[j].date);
-            alert(date)
             switch(promise[j].type) {
                 case "Homework":
                         $('span#homework').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
