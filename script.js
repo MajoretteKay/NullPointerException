@@ -173,48 +173,8 @@ export function renderDay() {
                 minutes = "30";
             }
             dayView += `<tr>
-            <th>${hour + ":" + minutes + time}</th>`;
-
-            // const response = getEvents(today).then(function(promise) {
-            //     return promise[0].begins;
-            // });
-
-            const response = getEvents(today).then(function(promise){
-                let length = promise.length;
-                let j;
-                let dayView = ``;
-                for(j = 0; j < length; j++) {
-                    let timeString;
-                    if (i >= 20) {
-                        if (i % 2 == 0) {
-                            timeString = i/2+":00";
-                        } else {
-                            timeString = (i-1)/2+":30";
-                        }
-                    } else if (i < 20) {
-                        if (i == 0) {
-                           timeString = "00:00";
-                        } else if (i == 1) {
-                            timeString = "00:30";
-                        } else if (i % 2 == 0) {
-                            timeString = "0"+i/2+":00";
-                        } else {
-                            timeString = "0"+(i-1)/2+":30";
-                        }
-                    } 
-                    if (promise[j].begins == timeString) {
-                        alert("match found");                    
-                        dayView += `<th><button class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button></th>`;
-                    }
-
-                }
-            });
-            
-            if (hour == 11 && min == 30 && time == "am") { //hardcoded event button
-                dayView += `<th><button class="event">HW1 Time: 11:30AM - 12:00PM Location: G100</button><div id="eventDiv"></div></th>`
-            }
-            
-            dayView += `</tr>`;
+            <th>${hour + ":" + minutes + time}</th>
+            <th><div id="${i}"></div></th></tr>`;
             
             // event goes in empty th above
             if (min == 30 && hour == 12) {
@@ -232,7 +192,40 @@ export function renderDay() {
         dayView += `</table>`;
         dayView += `</div>`;
 
-        return dayView;
+        $('#root').append(dayView);
+
+        const response = getEvents(today).then(function(promise){
+            let length = promise.length;
+            let j;
+            let dayView = ``;
+            for(let i = 0; i < 48; i++) {
+            for(j = 0; j < length; j++) {
+                let timeString;
+                if (i >= 20) {
+                    if (i % 2 == 0) {
+                        timeString = i/2+":00";
+                    } else {
+                        timeString = (i-1)/2+":30";
+                    }
+                } else if (i < 20) {
+                    if (i == 0) {
+                       timeString = "00:00";
+                    } else if (i == 1) {
+                        timeString = "00:30";
+                    } else if (i % 2 == 0) {
+                        timeString = "0"+i/2+":00";
+                    } else {
+                        timeString = "0"+(i-1)/2+":30";
+                    }
+                } 
+                if (promise[j].begins == timeString) {
+                    alert("match found");                    
+                    $('div#'+i).replaceWith(`<button class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                }
+
+            }
+        }
+        });
     }
 
 
