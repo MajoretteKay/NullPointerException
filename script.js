@@ -480,11 +480,6 @@ export function changeView(event) {
         }).catch(function(error) {
             // no promsises
         });
-    
-
-        
-
-
 }
 
 export function newCalendar(event) {
@@ -658,6 +653,7 @@ export function editEvent(event) {
     
 }
 
+
 export function editEventForm(event) {
     event.preventDefault();
     
@@ -673,10 +669,12 @@ export function editEventForm(event) {
     // request to delete the event here
     addEventRequest(title, date, begins, ends, description, location, type);
     $('div#dayView').replaceWith(renderDay());
+    deleteEvent(event);
 
 }
 
 export async function deleteEvent(event) {
+    event.preventDefault();
     // request to edit the event here
     let today = new Date(event.target.value);
     let i = event.target.id;
@@ -719,8 +717,7 @@ export async function deleteEvent(event) {
             console.log(error);
         }
     });
-
-
+    renderDay();
 }
 
 export function cancelbutton(event) {

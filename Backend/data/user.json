@@ -3,7 +3,84 @@
     "2019": {
       "11": {
         "11": {
-          "Events": []
+          "Events": [
+            {
+              "title": "Blowing it",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "10:00",
+              "ends": "11:00",
+              "description": "hard",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "Sucking it",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "10:00",
+              "ends": "11:00",
+              "description": "Hard",
+              "location": "SRC",
+              "type": "Studying"
+            },
+            {
+              "title": "Penetrating it",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "00:00",
+              "ends": "13:00",
+              "description": "Hard",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "Youtube",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "05:00",
+              "ends": "06:00",
+              "description": "asntoheu",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "Hello",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "02:00",
+              "ends": "03:00",
+              "description": "aoteuh",
+              "location": "Genome",
+              "type": "Homework"
+            },
+            {
+              "title": "Failing my shit",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "11:00",
+              "ends": "12:00",
+              "description": "ntaoheu",
+              "location": "SRC",
+              "type": "Homework"
+            }
+          ]
+        },
+        "12": {
+          "Events": [
+            {
+              "title": "Lifting",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "05:00",
+              "ends": "06:00",
+              "description": "Legs",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "Lifting",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "11:00",
+              "ends": "12:00",
+              "description": "Upper Body",
+              "location": "SRC",
+              "type": "Homework"
+            }
+          ]
         }
       }
     },
