@@ -257,11 +257,19 @@ export function renderDay() {
 export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
+<<<<<<< Updated upstream
     text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due in:</p>`;
     text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due in:</p>`;
     text += `<p>Your next <a style="color:#F84EAB">Test</a> is due in:</p>`;
     text += `<p>Your next <a style="color:#FFCF56">Class</a> is:</p>`;
     text += `<p>Your next <a style="color:#FF6B85">Project</a> is due in:</p>`;
+=======
+    text += `<p>Your next Homework is due: <span id="homework"></span></p>`;
+    text += `<p>Your next Quiz is due: <span id="quiz"></span></p>`;
+    text += `<p>Your next Test is due: <span id="test"></span></p>`;
+    text += `<p>Your next Class is: <span id="class"></span></p>`;
+    text += `<p>Your next Project is due: <span id="project"></span></p>`;
+>>>>>>> Stashed changes
     text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
     text += `<a class="weatherwidget-io" href="https://forecast7.com/en/35d91n79d06/chapel-hill/?unit=us" data-label_1="CHAPEL HILL" data-label_2="WEATHER" data-days="3" data-theme="beige" >CHAPEL HILL WEATHER</a>
@@ -487,12 +495,19 @@ export function changeView(event) {
 
 }
 
+<<<<<<< Updated upstream
 export async function week() {
+=======
+export function week() {
+>>>>>>> Stashed changes
     let today = new Date();
     let currDay = today.getDate();
     let currMonth = today.getMonth();
     let currYear = today.getFullYear();
+<<<<<<< Updated upstream
     let days;
+=======
+>>>>>>> Stashed changes
     switch(today.getMonth()) {
         case 0:
             days = 31;
@@ -530,6 +545,7 @@ export async function week() {
             break;  
     }
     let hw, cl, qu, te, pj = false;
+<<<<<<< Updated upstream
     for (let i = 0; i < 30; i++) { //checks the next 30 days for events
         let date = new Date(currYear,currMonth,currDay);
         const response = getEvents(date).then(function(promise){
@@ -571,6 +587,28 @@ export async function week() {
         }
 
 
+=======
+    for (let i = 0; i < 30; i++) {
+        const response = getEvents(new Date(currYear,currMonth,currDay)).then(function(promise){
+            switch(promise[j].type) {
+                case "Homework":
+                        $('span#homework')
+                        break;
+                case "Class":
+                        $('span#class')
+                        break;
+                case "Quiz":
+                        $('span#quiz')
+                        break;
+                case "Test":
+                        $('span#test')
+                        break;
+                case "Project":
+                        $('span#homework')
+                        break;
+                
+            } 
+>>>>>>> Stashed changes
         });
         currDay++;
         if (currDay > days) {
