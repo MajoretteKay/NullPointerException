@@ -483,11 +483,6 @@ export function changeView(event) {
         }).catch(function(error) {
             // no promsises
         });
-    
-
-        
-
-
 }
 
 export async function week() {
@@ -733,7 +728,7 @@ export function editEvent(event) {
     <input id="location2" placeholder="Genome G0100"></input></div>
     <div><label>Select the Type of Event:</label>
     <input id="type2" placeholder="Homework"></input></div>
-    <button type="submit" value="${event.target.value}"> Edit </button></form></div>`;
+    <button type="submit" id="submitButton" value="${event.target.id}"> Edit </button></form></div>`;
     $('div#'+event.target.id).replaceWith(form);
     let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
     $("#type").autocomplete({
@@ -742,7 +737,8 @@ export function editEvent(event) {
     
 }
 
-export function editEventForm(event) {
+
+export async function editEventForm(event) {
     event.preventDefault();
     
     let title = $('input#title2').val();
@@ -753,17 +749,101 @@ export function editEventForm(event) {
     let location = "" + $('input#location2').val();
     let type = "" + $('input#type2').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
+    let today = date; 
+    let i = $('button#submitButton').val();
 
-    // request to delete the event here
-    addEventRequest(title, date, begins, ends, description, location, type);
+    getEvents(today).then(async function(promise){
+        let timeString;
+        if (i >= 20) {
+            if (i % 2 == 0) {
+                timeString = i/2+":00";
+            } else {
+                timeString = (i-1)/2+":30";
+            }
+        } else if (i < 20) {
+            if (i == 0) {
+                timeString = "00:00";
+            } else if (i == 1) {
+                timeString = "00:30";
+            } else if (i % 2 == 0) {
+                timeString = "0"+i/2+":00";
+            } else {
+                timeString = "0"+(i-1)/2+":30";
+            }
+        } 
+        let length = promise.length;
+        let j;
+        alert(i);
+        alert(timeString);
+        for(j = 0; j < length; j++) {
+            if(promise[j].begins == timeString){
+                alert("deleting " + promise[j]);
+                promise.splice(j, 1);
+            }
+        }
+        try {
+            const res = await pubRoot.delete(`user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
+                {headers: {Authorization: `Bearer ${getToken()}`}}
+            );
+            const addNew = await pubRoot.post(`user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
+                {data: promise,
+                    type: "merge"},
+                {headers: {Authorization: `Bearer ${getToken()}`}}
+            );
+        } catch (error) {
+            console.log(error);
+        }
+        // request to delete the event here
+        try {
+            alert("creating");
+            if(type == "Class"){
+                const res = await pubRoot.post(`public/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
+                    {data: [{
+                        "title": title,
+                        "date": date,
+                        "begins": begins,
+                        "ends": ends,
+                        "description": description,
+                        "location": location,
+                        "type": type}],
+                    type: "merge"},
+                    {headers: {Authorization: `Bearer ${getToken()}`}}
+                );
+            }
+            const res = await pubRoot.post(`user/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}/Events`, 
+                {data: [{
+                    "title": title,
+                    "date": date,
+                    "begins": begins,
+                    "ends": ends,
+                    "description": description,
+                    "location": location,
+                    "type": type}],
+                type: "merge"},
+                {headers: {Authorization: `Bearer ${getToken()}`}}
+            );
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }).catch(function(error){
+        alert(error);
+    });
+
+
     $('div#dayView').replaceWith(renderDay());
 
 }
 
-export async function deleteEvent(event) {
+export async function delEvent(event) {
+    deleteEvent(event.target);
+    $('div#dayView').replaceWith(renderDay());
+}
+
+export async function deleteEvent(target) {
+    event.preventDefault();
     // request to edit the event here
-    let today = new Date(event.target.value);
-    let i = event.target.id;
+    let today = new Date(target.value);
+    let i = target.id;
     let timeString;
     if (i >= 20) {
         if (i % 2 == 0) {
@@ -786,7 +866,8 @@ export async function deleteEvent(event) {
         let length = promise.length;
         let i;
         for(i = 0; i < length; i++) {
-            if(promise[i].begins == timeString){
+            console.log(promise[i]);
+            if(promise[i] != undefined && promise[i].begins == timeString){
                 promise.splice(i, 1);
             }
         }
@@ -804,7 +885,6 @@ export async function deleteEvent(event) {
         }
     });
 
-    $('div#dayView').replaceWith(renderDay());
 }
 
 export function cancelbutton(event) {
@@ -837,7 +917,7 @@ export async function renderSite() {
     $root.on("click", ".cancel", cancelbutton);
     $root.on("click", ".edit", editEvent);
     $root.on("submit", ".form", editEventForm);
-    $root.on("click", ".delete", deleteEvent);
+    $root.on("click", ".delete", delEvent);
 }
 
 async function getEvents(today) {
