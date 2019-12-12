@@ -630,7 +630,6 @@ export function goTo() {
 }
 
 export function editDel(event) {
-    alert(event.target.value);
     $('div#'+event.target.id).html(`<p id="${event.target.id}">Edit or Delete Event?</p><button id="${event.target.id}" value="${event.target.value}" class="edit">Edit</button><button id="${event.target.id}" value="${event.target.value}" class="delete">Delete</button><button class="cancel">Cancel</button>`);
 }
 
@@ -674,13 +673,54 @@ export function editEventForm(event) {
     // request to delete the event here
     addEventRequest(title, date, begins, ends, description, location, type);
     $('div#dayView').replaceWith(renderDay());
-    
 
 }
 
-export function deleteEvent(event) {
+export async function deleteEvent(event) {
     // request to edit the event here
-    $('div#dayView').replaceWith(renderDay());
+    let today = new Date(event.target.value);
+    let i = event.target.id;
+    let timeString;
+    if (i >= 20) {
+        if (i % 2 == 0) {
+            timeString = i/2+":00";
+        } else {
+            timeString = (i-1)/2+":30";
+        }
+    } else if (i < 20) {
+        if (i == 0) {
+            timeString = "00:00";
+        } else if (i == 1) {
+            timeString = "00:30";
+        } else if (i % 2 == 0) {
+            timeString = "0"+i/2+":00";
+        } else {
+            timeString = "0"+(i-1)/2+":30";
+        }
+    } 
+    getEvents(today).then(async function(promise){
+        let length = promise.length;
+        let i;
+        for(i = 0; i < length; i++) {
+            if(promise[i].begins == timeString){
+                promise.splice(i, 1);
+            }
+        }
+        try {
+            const res = await pubRoot.delete(`user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
+                {headers: {Authorization: `Bearer ${getToken()}`}}
+            );
+            const addNew = await pubRoot.post(`user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
+                {data: promise,
+                    type: "merge"},
+                {headers: {Authorization: `Bearer ${getToken()}`}}
+            );
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+
 }
 
 export function cancelbutton(event) {

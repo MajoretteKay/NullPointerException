@@ -29,6 +29,15 @@
             "description": "anhoeul",
             "location": "Genome G100",
             "type": "Class"
+          },
+          {
+            "title": "Comp 411",
+            "date": "2019-12-11T05:00:00.000Z",
+            "begins": "12:00",
+            "ends": "15:00",
+            "description": "asntoheu",
+            "location": "Genome",
+            "type": "Class"
           }
         ]
       }
