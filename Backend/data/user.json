@@ -3,42 +3,6 @@
     "2019": {
       "11": {
         "11": {
-<<<<<<< Updated upstream
-          "Events": []
-        }
-      }
-    },
-    "NaN": {
-      "NaN": {
-        "NaN": {
-          "Events": [
-            {
-              "title": "",
-              "date": null,
-              "begins": "",
-              "ends": "",
-              "description": "",
-              "location": "",
-              "type": ""
-            }
-          ]
-        }
-      }
-    }
-  },
-  "majorettekay": {
-    "2019": {
-      "11": {
-        "11": {
-          "Events": [
-            {
-              "title": "HW1",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "11:00",
-              "ends": "12:00",
-              "description": "Derp",
-              "location": "G100",
-=======
           "Events": [
             {
               "title": "Taco Tuesday",
@@ -56,7 +20,6 @@
               "ends": "12:30",
               "description": "Let's eat some tacos",
               "location": "CVRC",
->>>>>>> Stashed changes
               "type": "Homework"
             },
             {
@@ -67,38 +30,6 @@
               "description": "This is a really long message to test something",
               "location": "Genome G100",
               "type": "Homework"
-            },
-            {
-<<<<<<< Updated upstream
-              "title": "Nighttime",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "20:00",
-              "ends": "21:00",
-              "description": "goodnight",
-              "location": "Parker",
-              "type": "Sleep"
-            }
-          ]
-        },
-        "12": {
-          "Events": [
-            {
-              "title": "Nighttime",
-              "date": "2019-12-12T05:00:00.000Z",
-              "begins": "11:00",
-              "ends": "12:00",
-              "description": "LALA",
-              "location": "Bed",
-              "type": "Sleep"
-=======
-              "title": "ENGL 514",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "10:00",
-              "ends": "10:30",
-              "description": "test",
-              "location": "CVRC",
-              "type": "Quiz"
->>>>>>> Stashed changes
             }
           ]
         }
