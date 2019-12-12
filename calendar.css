@@ -39,8 +39,10 @@ h {
 button{
     max-height: fit-content;
     font-family: monospace;
+    font-size: 15px;
     color: #000000;
     background-color: #c8d5b9;
+    padding: 10px;
 }
 
 button:hover{
