@@ -618,7 +618,7 @@ export function editEventForm(event) {
 
 export function deleteEvent(event) {
     // request to edit the event here
-    $('div#dayView').replaceWith(renderday());
+    $('div#dayView').replaceWith(renderDay());
 }
 
 export function cancelbutton(event) {
