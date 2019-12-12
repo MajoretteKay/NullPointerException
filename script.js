@@ -257,19 +257,13 @@ export function renderDay() {
 export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
-<<<<<<< Updated upstream
-    text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due in:</p>`;
-    text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due in:</p>`;
-    text += `<p>Your next <a style="color:#F84EAB">Test</a> is due in:</p>`;
-    text += `<p>Your next <a style="color:#FFCF56">Class</a> is:</p>`;
-    text += `<p>Your next <a style="color:#FF6B85">Project</a> is due in:</p>`;
-=======
-    text += `<p>Your next Homework is due: <span id="homework"></span></p>`;
-    text += `<p>Your next Quiz is due: <span id="quiz"></span></p>`;
-    text += `<p>Your next Test is due: <span id="test"></span></p>`;
-    text += `<p>Your next Class is: <span id="class"></span></p>`;
-    text += `<p>Your next Project is due: <span id="project"></span></p>`;
->>>>>>> Stashed changes
+
+    text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due in:<span id="homework"></span></p>`;
+    text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due in:<span id="quiz"></span></p>`;
+    text += `<p>Your next <a style="color:#F84EAB">Test</a> is due in:<span id="test"></span></p>`;
+    text += `<p>Your next <a style="color:#FFCF56">Class</a> is:<span id="class"></span></p>`;
+    text += `<p>Your next <a style="color:#FF6B85">Project</a> is due in:<span id="project"></span></p>`;
+
     text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
     text += `<a class="weatherwidget-io" href="https://forecast7.com/en/35d91n79d06/chapel-hill/?unit=us" data-label_1="CHAPEL HILL" data-label_2="WEATHER" data-days="3" data-theme="beige" >CHAPEL HILL WEATHER</a>
@@ -495,19 +489,13 @@ export function changeView(event) {
 
 }
 
-<<<<<<< Updated upstream
 export async function week() {
-=======
-export function week() {
->>>>>>> Stashed changes
     let today = new Date();
     let currDay = today.getDate();
     let currMonth = today.getMonth();
     let currYear = today.getFullYear();
-<<<<<<< Updated upstream
     let days;
-=======
->>>>>>> Stashed changes
+
     switch(today.getMonth()) {
         case 0:
             days = 31;
@@ -544,71 +532,27 @@ export function week() {
             days = 31;  
             break;  
     }
-    let hw, cl, qu, te, pj = false;
-<<<<<<< Updated upstream
-    for (let i = 0; i < 30; i++) { //checks the next 30 days for events
-        let date = new Date(currYear,currMonth,currDay);
-        const response = getEvents(date).then(function(promise){
-            for (let j = 0; j < promise.length; j++) {
-            switch(promise[j].type) {
-                case "Homework":
-                    if (hw == false) {
-                        $('span#homework').html((currMonth+1)+"/"+currDay+"/"+currYear);
-                        hw = true;
-                    }
-                        
-                        break;
-                case "Class":
-                    if (cl == false) {
-                        $('span#class').html((currMonth+1)+"/"+currDay+"/"+currYear);
-                        cl = true;
-                    }
-                        break;
-                case "Quiz":
-                    if (qu == false) {
-                        $('span#quiz').html((currMonth+1)+"/"+currDay+"/"+currYear);
-                        qu = true;
-                    }
-                        break;
-                case "Test":
-                    if (te == false) {
-                        $('span#test').html((currMonth+1)+"/"+currDay+"/"+currYear);
-                        te = true;
-                    }
-                        break;
-                case "Project":
-                    if (pj == false) {
-                        $('span#project').html((currMonth+1)+"/"+currDay+"/"+currYear);
-                        pj = true;
-                    }
-                        break;
-                
-            } 
-        }
-
-
-=======
     for (let i = 0; i < 30; i++) {
         const response = getEvents(new Date(currYear,currMonth,currDay)).then(function(promise){
+            let date = new Date(promise[j].date);
             switch(promise[j].type) {
                 case "Homework":
-                        $('span#homework')
+                        $('span#homework').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
                         break;
                 case "Class":
-                        $('span#class')
+                        $('span#class').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
                         break;
                 case "Quiz":
-                        $('span#quiz')
+                        $('span#quiz').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
                         break;
                 case "Test":
-                        $('span#test')
+                        $('span#test').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
                         break;
                 case "Project":
-                        $('span#homework')
+                        $('span#project').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
                         break;
                 
             } 
->>>>>>> Stashed changes
         });
         currDay++;
         if (currDay > days) {
