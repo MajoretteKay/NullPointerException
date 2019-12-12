@@ -21,6 +21,41 @@
               "description": "Leg day",
               "location": "SRC",
               "type": "Training"
+            },
+            {
+              "title": "Comp 411",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "06:09",
+              "ends": "07:59",
+              "description": "a class i failed. ",
+              "location": "Genome G100",
+              "type": "Class"
+            },
+            {
+              "title": "Comp 384",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "10:00",
+              "ends": "11:00",
+              "description": "anhoeul",
+              "location": "Genome G100",
+              "type": "Class"
+            }
+          ]
+        }
+      }
+    },
+    "NaN": {
+      "NaN": {
+        "NaN": {
+          "Events": [
+            {
+              "title": "",
+              "date": null,
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
             }
           ]
         }
@@ -58,15 +93,6 @@
               "description": "goodnight",
               "location": "Parker",
               "type": "Sleep"
-            },
-            {
-              "title": "litty",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "",
-              "ends": "",
-              "description": "",
-              "location": "",
-              "type": ""
             }
           ]
         },
@@ -80,32 +106,6 @@
               "description": "LALA",
               "location": "Bed",
               "type": "Sleep"
-            }
-          ]
-        }
-      }
-    },
-    "NaN": {
-      "NaN": {
-        "NaN": {
-          "Events": [
-            {
-              "title": "",
-              "date": null,
-              "begins": "",
-              "ends": "",
-              "description": "",
-              "location": "",
-              "type": ""
-            },
-            {
-              "title": "",
-              "date": null,
-              "begins": "",
-              "ends": "",
-              "description": "",
-              "location": "",
-              "type": ""
             }
           ]
         }
