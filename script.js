@@ -219,8 +219,32 @@ export function renderDay() {
                         timeString = "0"+(i-1)/2+":30";
                     }
                 } 
-                if (promise[j].begins == timeString) {                  
-                    $('div#'+i).html(`<button id="${i}" value="${j}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                if (promise[j].begins == timeString) { 
+                    switch(promise[j].type) {
+                        case "Homework":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FFFF71;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        case "Class":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FFCF56;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        case "Quiz":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FF9B64;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        case "Test":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #F84EAB;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        case "Interview":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #AF4FCB;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        case "Study":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #0059D7;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        case "Project":
+                                $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FF6B85">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                break;
+                        
+                    }                 
+                    
                 }
 
             }
@@ -423,9 +447,32 @@ export function changeView(event) {
                     } else {
                         timeString = "0"+(i-1)/2+":30";
                     }
-                } 
-                if (promise[j].begins == timeString) {                  
-                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                }                   
+                    if (promise[j].begins == timeString) { 
+                        switch(promise[j].type) {
+                            case "Homework":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FFFF71;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            case "Class":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FFCF56;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            case "Quiz":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FF9B64;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            case "Test":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #F84EAB;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            case "Interview":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #AF4FCB;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            case "Study":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #0059D7;">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            case "Project":
+                                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event" style="background-color: #FF6B85">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                                    break;
+                            
+                        } 
                 }
 
             }
@@ -583,6 +630,7 @@ export function goTo() {
 }
 
 export function editDel(event) {
+    alert(event.target.value);
     $('div#'+event.target.id).html(`<p id="${event.target.id}">Edit or Delete Event?</p><button id="${event.target.id}" value="${event.target.value}" class="edit">Edit</button><button id="${event.target.id}" value="${event.target.value}" class="delete">Delete</button><button class="cancel">Cancel</button>`);
 }
 
