@@ -433,8 +433,7 @@ export function changeView(event) {
                     } else {
                         timeString = "0"+(i-1)/2+":30";
                     }
-                } 
-                if (promise[j].begins == timeString) {                  
+                }                   
                     if (promise[j].begins == timeString) { 
                         switch(promise[j].type) {
                             case "Homework":
