@@ -728,7 +728,7 @@ export function editEvent(event) {
     <input id="location2" placeholder="Genome G0100"></input></div>
     <div><label>Select the Type of Event:</label>
     <input id="type2" placeholder="Homework"></input></div>
-    <button type="submit" id="${event.target.id}" value="${event.target.value}"> Edit </button></form></div>`;
+    <button type="submit" id="submitButton" value="${event.target.id}"> Edit </button></form></div>`;
     $('div#'+event.target.id).replaceWith(form);
     let suggestions = ["Homework", "Class", "Test", "Quiz", "Project", "Interview", "Study"];
     $("#type").autocomplete({
@@ -749,38 +749,39 @@ export async function editEventForm(event) {
     let location = "" + $('input#location2').val();
     let type = "" + $('input#type2').val();
     $('div#eventForm').replaceWith(`<div id="eventForm"></div>`);
-
     let today = date; 
-    let i = event.target.id;
-    let timeString;
-    if (i >= 20) {
-        if (i % 2 == 0) {
-            timeString = i/2+":00";
-        } else {
-            timeString = (i-1)/2+":30";
-        }
-    } else if (i < 20) {
-        if (i == 0) {
-            timeString = "00:00";
-        } else if (i == 1) {
-            timeString = "00:30";
-        } else if (i % 2 == 0) {
-            timeString = "0"+i/2+":00";
-        } else {
-            timeString = "0"+(i-1)/2+":30";
-        }
-    } 
+    let i = $('button#submitButton').val();
+
     getEvents(today).then(async function(promise){
+        let timeString;
+        if (i >= 20) {
+            if (i % 2 == 0) {
+                timeString = i/2+":00";
+            } else {
+                timeString = (i-1)/2+":30";
+            }
+        } else if (i < 20) {
+            if (i == 0) {
+                timeString = "00:00";
+            } else if (i == 1) {
+                timeString = "00:30";
+            } else if (i % 2 == 0) {
+                timeString = "0"+i/2+":00";
+            } else {
+                timeString = "0"+(i-1)/2+":30";
+            }
+        } 
         let length = promise.length;
-        let i;
-        for(i = 0; i < length; i++) {
-            if(promise[i] != undefined && promise[i].begins == timeString){
-                alert("deleting " + promise[i]);
-                promise.splice(i, 1);
+        let j;
+        alert(i);
+        alert(timeString);
+        for(j = 0; j < length; j++) {
+            if(promise[j].begins == timeString){
+                alert("deleting " + promise[j]);
+                promise.splice(j, 1);
             }
         }
         try {
-            alert("deleting");
             const res = await pubRoot.delete(`user/${today.getFullYear()}/${today.getMonth()}/${today.getDate()}/Events`, 
                 {headers: {Authorization: `Bearer ${getToken()}`}}
             );

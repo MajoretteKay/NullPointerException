@@ -5,30 +5,57 @@
         "11": {
           "Events": [
             {
-              "title": "Taco Tuesday",
+              "title": "Blowing it",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "14:30",
-              "ends": "14:30",
-              "description": "Tacos",
-              "location": "CVRC",
+              "begins": "10:00",
+              "ends": "11:00",
+              "description": "hard",
+              "location": "SRC",
               "type": "Homework"
             },
             {
-              "title": "HW2",
+              "title": "Sucking it",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "12:00",
-              "ends": "12:30",
-              "description": "Let's eat some tacos",
-              "location": "CVRC",
+              "begins": "10:00",
+              "ends": "11:00",
+              "description": "Hard",
+              "location": "SRC",
+              "type": "Studying"
+            },
+            {
+              "title": "Penetrating it",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "00:00",
+              "ends": "13:00",
+              "description": "Hard",
+              "location": "SRC",
               "type": "Homework"
             },
             {
-              "title": "ENGL 514",
+              "title": "Youtube",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "05:00",
+              "ends": "06:00",
+              "description": "asntoheu",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "Hello",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "02:00",
+              "ends": "03:00",
+              "description": "aoteuh",
+              "location": "Genome",
+              "type": "Homework"
+            },
+            {
+              "title": "Failing my shit",
               "date": "2019-12-11T05:00:00.000Z",
               "begins": "11:00",
-              "ends": "00:00",
-              "description": "This is a really long message to test something",
-              "location": "Genome G100",
+              "ends": "12:00",
+              "description": "ntaoheu",
+              "location": "SRC",
               "type": "Homework"
             }
           ]
@@ -36,68 +63,164 @@
         "12": {
           "Events": [
             {
-              "title": "Tetsing",
+              "title": "Failing my shit",
               "date": "2019-12-12T05:00:00.000Z",
-              "begins": "19:00",
-              "ends": "20:00",
-              "description": "Testing",
-              "location": "Test",
-              "type": "Test"
+              "begins": "01:00",
+              "ends": "02:00",
+              "description": "astnheou",
+              "location": "Genome",
+              "type": "Homework"
             },
             {
-              "title": "Testing",
-              "date": "2019-12-12T05:00:00.000Z",
-              "begins": "02:00",
-              "ends": "03:00",
-              "description": "hello",
-              "location": "hello",
-              "type": "Test"
-            },
-            {
-              "title": "Testing",
+              "title": "Quiz",
               "date": "2019-12-12T05:00:00.000Z",
               "begins": "05:00",
               "ends": "06:00",
-              "description": "Testing",
-              "location": "Testing",
+              "description": "japanese",
+              "location": "genome",
               "type": "Quiz"
             },
             {
-              "title": "Fuck it",
+              "title": "Failing",
               "date": "2019-12-12T05:00:00.000Z",
-              "begins": "07:00",
-              "ends": "08:00",
-              "description": "fucking it",
-              "location": "at fuck",
+              "begins": "12:00",
+              "ends": "13:00",
+              "description": "help me",
+              "location": "Genome",
               "type": "Homework"
             },
             {
-              "title": "Screw it",
+              "title": "Failing",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "03:00",
+              "ends": "04:00",
+              "description": "tahous",
+              "location": "sathoeurh",
+              "type": "Failing"
+            },
+            {
+              "title": "QUiz",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "02:00",
+              "ends": "03:00",
+              "description": "anthoeu",
+              "location": "Genome",
+              "type": "Homework"
+            },
+            {
+              "title": "Quiz",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "04:00",
+              "ends": "05:00",
+              "description": "natoehu",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "quiz",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "06:00",
+              "ends": "07:00",
+              "description": "asntoeu",
+              "location": "SRC",
+              "type": "Homework"
+            },
+            {
+              "title": "Quiz",
+              "date": "2019-12-12T05:00:00.000Z",
+              "begins": "07:00",
+              "ends": "08:00",
+              "description": "aosntheuns",
+              "location": "src",
+              "type": "Homework"
+            },
+            {
+              "title": "quiz",
               "date": "2019-12-12T05:00:00.000Z",
               "begins": "08:00",
               "ends": "09:00",
-              "description": "atnsoheu",
-              "location": "Screwing",
+              "description": "antoehu",
+              "location": "SRC",
               "type": "Homework"
+            }
+          ]
+        }
+      }
+    },
+    "NaN": {
+      "NaN": {
+        "NaN": {
+          "Events": [
+            {
+              "title": "",
+              "date": null,
+              "begins": "",
+              "ends": "",
+              "description": "",
+              "location": "",
+              "type": ""
+            },
+            {
+              "date": null,
+              "description": "undefined",
+              "location": "undefined",
+              "type": "undefined"
+            },
+            {
+              "date": null,
+              "description": "undefined",
+              "location": "undefined",
+              "type": "undefined"
             }
           ]
         }
       }
     }
   },
-  "kenny": {
+  "majorettekay": {
     "2019": {
       "11": {
+        "11": {
+          "Events": [
+            {
+              "title": "HW1",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "11:00",
+              "ends": "12:00",
+              "description": "Derp",
+              "location": "G100",
+              "type": "Homework"
+            },
+            {
+              "title": "HW2",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "06:00",
+              "ends": "06:30",
+              "description": "Who makes homework due at 5am",
+              "location": "G100",
+              "type": "Homework"
+            },
+            {
+              "title": "Nighttime",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "20:00",
+              "ends": "21:00",
+              "description": "goodnight",
+              "location": "Parker",
+              "type": "Sleep"
+            }
+          ]
+        },
         "12": {
           "Events": [
             {
-              "title": "COMP 411",
+              "title": "Nighttime",
               "date": "2019-12-12T05:00:00.000Z",
-              "begins": "09:00",
-              "ends": "10:15",
-              "description": "The greatest in the world. Give a passing grade montek. love ya.",
-              "location": "Carroll 011",
-              "type": "Class"
+              "begins": "11:00",
+              "ends": "12:00",
+              "description": "LALA",
+              "location": "Bed",
+              "type": "Sleep"
             }
           ]
         }
