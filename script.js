@@ -258,11 +258,11 @@ export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
 
-    text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due in:<span id="homework"></span></p>`;
-    text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due in:<span id="quiz"></span></p>`;
-    text += `<p>Your next <a style="color:#F84EAB">Test</a> is due in:<span id="test"></span></p>`;
-    text += `<p>Your next <a style="color:#FFCF56">Class</a> is:<span id="class"></span></p>`;
-    text += `<p>Your next <a style="color:#FF6B85">Project</a> is due in:<span id="project"></span></p>`;
+    text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due:<span id="homework"></span></p>`;
+    text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due:<span id="quiz"></span></p>`;
+    text += `<p>Your next <a style="color:#F84EAB">Test</a> is due:<span id="test"></span></p>`;
+    text += `<p>Your next <a style="color:#FFCF56">Class</a> is on:<span id="class"></span></p>`;
+    text += `<p>Your next <a style="color:#FF6B85">Project</a> is due:<span id="project"></span></p>`;
 
     text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
@@ -319,6 +319,7 @@ export async function addEvent(event) {
     // id like to do an isMine element instead of user but im not sure how???
     addEventRequest(title, date, begins, ends, description, location, type);
     $('div#dayView').replaceWith(renderDay());
+    week();
 
 }
 
@@ -533,8 +534,11 @@ export async function week() {
             break;  
     }
     for (let i = 0; i < 30; i++) {
-        const response = getEvents(new Date(currYear,currMonth,currDay)).then(function(promise){
+        let newdate = new Date(currYear,currMonth,currDay);
+        const response = getEvents(newdate).then(function(promise){
+            for (let j = 0; j < promise.length; j++) {
             let date = new Date(promise[j].date);
+            alert(date)
             switch(promise[j].type) {
                 case "Homework":
                         $('span#homework').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
@@ -553,6 +557,7 @@ export async function week() {
                         break;
                 
             } 
+        }
         });
         currDay++;
         if (currDay > days) {
