@@ -219,8 +219,18 @@ export function renderDay() {
                         timeString = "0"+(i-1)/2+":30";
                     }
                 } 
-                if (promise[j].begins == timeString) {                  
-                    $('div#'+i).html(`<button id="${i}" value="${j}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
+                if (promise[j].begins == timeString) { 
+                    switch(promise[j].type) {
+                        case "Homework":
+                        case "Class":
+                        case "Quiz":
+                        case "Test":
+                        case "Interview":
+                        case "Study":
+                        case "Project":
+                        
+                    }                 
+                    $('div#'+i).html(`<button id="${i}" value="${promise[j].date}" class="event">${promise[j].title}: ${promise[j].description}. ${promise[j].begins} - ${promise[j].ends}. Location: ${promise[j].location}</button>`);
                 }
 
             }
@@ -569,6 +579,7 @@ export function goTo() {
 }
 
 export function editDel(event) {
+    alert(event.target.value);
     $('div#'+event.target.id).html(`<p id="${event.target.id}">Edit or Delete Event?</p><button id="${event.target.id}" value="${event.target.value}" class="edit">Edit</button><button id="${event.target.id}" value="${event.target.value}" class="delete">Delete</button><button class="cancel">Cancel</button>`);
 }
 
