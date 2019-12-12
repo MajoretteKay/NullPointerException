@@ -1,8 +1,9 @@
 {
-  "goldenlovers": {
+  "navyjaker": {
     "2019": {
       "11": {
         "11": {
+<<<<<<< Updated upstream
           "Events": []
         }
       }
@@ -37,18 +38,38 @@
               "ends": "12:00",
               "description": "Derp",
               "location": "G100",
-              "type": "Homework"
-            },
+=======
+          "Events": [
             {
-              "title": "HW2",
+              "title": "Taco Tuesday",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "06:00",
-              "ends": "06:30",
-              "description": "Who makes homework due at 5am",
-              "location": "G100",
+              "begins": "14:30",
+              "ends": "14:30",
+              "description": "Tacos",
+              "location": "CVRC",
               "type": "Homework"
             },
             {
+              "title": "Taco Tuesday",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "12:00",
+              "ends": "12:30",
+              "description": "Let's eat some tacos",
+              "location": "CVRC",
+>>>>>>> Stashed changes
+              "type": "Homework"
+            },
+            {
+              "title": "ENGL 514",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "11:00",
+              "ends": "00:00",
+              "description": "This is a really long message to test something",
+              "location": "Genome G100",
+              "type": "Homework"
+            },
+            {
+<<<<<<< Updated upstream
               "title": "Nighttime",
               "date": "2019-12-11T05:00:00.000Z",
               "begins": "20:00",
@@ -69,6 +90,15 @@
               "description": "LALA",
               "location": "Bed",
               "type": "Sleep"
+=======
+              "title": "ENGL 514",
+              "date": "2019-12-11T05:00:00.000Z",
+              "begins": "10:00",
+              "ends": "10:30",
+              "description": "test",
+              "location": "CVRC",
+              "type": "Quiz"
+>>>>>>> Stashed changes
             }
           ]
         }
