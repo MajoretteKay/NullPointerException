@@ -257,11 +257,13 @@ export function renderDay() {
 export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
-    text += `<p>Your next Homework is due in:</p>`;
-    text += `<p>Your next Quiz is due in:</p>`;
-    text += `<p>Your next Test is due in:</p>`;
-    text += `<p>Your next Class is:</p>`;
-    text += `<p>Your next Project is due in:</p>`;
+
+    text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due:<span id="homework"></span></p>`;
+    text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due:<span id="quiz"></span></p>`;
+    text += `<p>Your next <a style="color:#F84EAB">Test</a> is due:<span id="test"></span></p>`;
+    text += `<p>Your next <a style="color:#FFCF56">Class</a> is on:<span id="class"></span></p>`;
+    text += `<p>Your next <a style="color:#FF6B85">Project</a> is due:<span id="project"></span></p>`;
+
     text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
     text += `<a class="weatherwidget-io" href="https://forecast7.com/en/35d91n79d06/chapel-hill/?unit=us" data-label_1="CHAPEL HILL" data-label_2="WEATHER" data-days="3" data-theme="beige" >CHAPEL HILL WEATHER</a>
@@ -317,6 +319,7 @@ export async function addEvent(event) {
     // id like to do an isMine element instead of user but im not sure how???
     addEventRequest(title, date, begins, ends, description, location, type);
     $('div#dayView').replaceWith(renderDay());
+    week();
 
 }
 
@@ -480,6 +483,87 @@ export function changeView(event) {
         }).catch(function(error) {
             // no promsises
         });
+}
+
+export async function week() {
+    let today = new Date();
+    let currDay = today.getDate();
+    let currMonth = today.getMonth();
+    let currYear = today.getFullYear();
+    let days;
+
+    switch(today.getMonth()) {
+        case 0:
+            days = 31;
+            break;
+        case 1:
+            days = 28;
+            break;
+        case 2:
+            days = 31;
+            break;
+        case 3: 
+            days = 30;
+            break;
+        case 4: 
+            days = 31;
+            break;
+        case 5:
+            days = 30;
+            break;
+        case 6: 
+            days = 31;
+        case 7: 
+            days = 31;
+            break;
+        case 8:
+            days = 30;
+            break;
+        case 9:
+            days = 31;
+        case 10:
+            days = 30;
+            break;
+        case 11:    
+            days = 31;  
+            break;  
+    }
+    for (let i = 0; i < 30; i++) {
+        let newdate = new Date(currYear,currMonth,currDay);
+        const response = getEvents(newdate).then(function(promise){
+            for (let j = 0; j < promise.length; j++) {
+            let date = new Date(promise[j].date);
+            switch(promise[j].type) {
+                case "Homework":
+                        $('span#homework').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
+                        break;
+                case "Class":
+                        $('span#class').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
+                        break;
+                case "Quiz":
+                        $('span#quiz').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
+                        break;
+                case "Test":
+                        $('span#test').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
+                        break;
+                case "Project":
+                        $('span#project').html((date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear());
+                        break;
+                
+            } 
+        }
+        });
+        currDay++;
+        if (currDay > days) {
+            currDay = 1;
+            currMonth++;
+        }
+        if (currMonth > 11) {
+            currMonth = 0;
+            currYear++;
+        }
+    
+    }
 }
 
 export function newCalendar(event) {
@@ -717,7 +801,8 @@ export async function deleteEvent(event) {
             console.log(error);
         }
     });
-    renderDay();
+
+    $('div#dayView').replaceWith(renderDay());
 }
 
 export function cancelbutton(event) {
@@ -738,6 +823,7 @@ export async function renderSite() {
     $root.append(renderCal());
     $root.append(renderDay());
     $root.append(renderWeek());
+    week();
 
     $root.on("click", ".eventButton", addEventsForm);
     $root.on("submit", ".eventSubmit", addEvent);

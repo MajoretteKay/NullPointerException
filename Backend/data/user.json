@@ -5,147 +5,31 @@
         "11": {
           "Events": [
             {
-              "title": "Blowing it",
+              "title": "Taco Tuesday",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "10:00",
-              "ends": "11:00",
-              "description": "hard",
-              "location": "SRC",
-              "type": "Homework"
-            },
-            {
-              "title": "Sucking it",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "10:00",
-              "ends": "11:00",
-              "description": "Hard",
-              "location": "SRC",
-              "type": "Studying"
-            },
-            {
-              "title": "Penetrating it",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "00:00",
-              "ends": "13:00",
-              "description": "Hard",
-              "location": "SRC",
-              "type": "Homework"
-            },
-            {
-              "title": "Youtube",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "05:00",
-              "ends": "06:00",
-              "description": "asntoheu",
-              "location": "SRC",
-              "type": "Homework"
-            },
-            {
-              "title": "Hello",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "02:00",
-              "ends": "03:00",
-              "description": "aoteuh",
-              "location": "Genome",
-              "type": "Homework"
-            },
-            {
-              "title": "Failing my shit",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "11:00",
-              "ends": "12:00",
-              "description": "ntaoheu",
-              "location": "SRC",
-              "type": "Homework"
-            }
-          ]
-        },
-        "12": {
-          "Events": [
-            {
-              "title": "Lifting",
-              "date": "2019-12-12T05:00:00.000Z",
-              "begins": "05:00",
-              "ends": "06:00",
-              "description": "Legs",
-              "location": "SRC",
-              "type": "Homework"
-            },
-            {
-              "title": "Lifting",
-              "date": "2019-12-12T05:00:00.000Z",
-              "begins": "11:00",
-              "ends": "12:00",
-              "description": "Upper Body",
-              "location": "SRC",
-              "type": "Homework"
-            }
-          ]
-        }
-      }
-    },
-    "NaN": {
-      "NaN": {
-        "NaN": {
-          "Events": [
-            {
-              "title": "",
-              "date": null,
-              "begins": "",
-              "ends": "",
-              "description": "",
-              "location": "",
-              "type": ""
-            }
-          ]
-        }
-      }
-    }
-  },
-  "majorettekay": {
-    "2019": {
-      "11": {
-        "11": {
-          "Events": [
-            {
-              "title": "HW1",
-              "date": "2019-12-11T05:00:00.000Z",
-              "begins": "11:00",
-              "ends": "12:00",
-              "description": "Derp",
-              "location": "G100",
+              "begins": "14:30",
+              "ends": "14:30",
+              "description": "Tacos",
+              "location": "CVRC",
               "type": "Homework"
             },
             {
               "title": "HW2",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "06:00",
-              "ends": "06:30",
-              "description": "Who makes homework due at 5am",
-              "location": "G100",
+              "begins": "12:00",
+              "ends": "12:30",
+              "description": "Let's eat some tacos",
+              "location": "CVRC",
               "type": "Homework"
             },
             {
-              "title": "Nighttime",
+              "title": "ENGL 514",
               "date": "2019-12-11T05:00:00.000Z",
-              "begins": "20:00",
-              "ends": "21:00",
-              "description": "goodnight",
-              "location": "Parker",
-              "type": "Sleep"
-            }
-          ]
-        },
-        "12": {
-          "Events": [
-            {
-              "title": "Nighttime",
-              "date": "2019-12-12T05:00:00.000Z",
               "begins": "11:00",
-              "ends": "12:00",
-              "description": "LALA",
-              "location": "Bed",
-              "type": "Sleep"
+              "ends": "00:00",
+              "description": "This is a really long message to test something",
+              "location": "Genome G100",
+              "type": "Homework"
             }
           ]
         }

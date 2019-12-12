@@ -5,8 +5,13 @@ header{
     background-color: #faf3dd;
     color: #000000;
     font-size: 40px;
-    font-family: copperplate, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-family: copperplate, fantasy, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 900;
+    padding: 10px;
+}
+
+header button{
+    font-size: large;
     padding: 10px;
 }
 
@@ -17,7 +22,7 @@ h {
     background-color: #faf3dd;
     color: #000000;
     font-size: 30px;
-    font-family: copperplate, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-family: copperplate, fantasy, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
     font-weight: 900;
     margin-left: auto;
     margin-right: auto;
@@ -37,7 +42,7 @@ h {
 }
 
 button{
-    block-size: 20px;
+    max-height: fit-content;
     font-family: monospace;
     color: #000000;
     background-color: #c8d5b9;
@@ -85,6 +90,8 @@ body {
 
 #dayView table {
     background-color: rgb(255, 255, 255, .7);
+    width: 100%;
+    text-align: left;
 }
 
 #calendar {
@@ -106,6 +113,13 @@ body {
     width: 33%;
     background-color: rgb(255, 255, 255, .7);
     padding-top: 30px;
+    font-family: copperplate, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 120%;
+}
+
+#weekly button {
+    font-size: large;
+    padding: 10px;
 }
 
 #motivation {

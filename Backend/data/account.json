@@ -6,6 +6,13 @@
         "firstName": "Kenny",
         "birthday": "2001-10-10T04:00:00.000Z"
       }
+    },
+    "navyjaker": {
+      "passwordHash": "$2a$10$zmkBLaGKfphBfuI99Wi7fu5qTYRjSMB6uobZjGl2feCJ9HJAB75Da",
+      "data": {
+        "firstName": "Jacob Miller",
+        "birthday": "1984-10-01T04:00:00.000Z"
+      }
     }
   }
 }
