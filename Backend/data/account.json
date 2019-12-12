@@ -1,38 +1,10 @@
 {
   "users": {
-    "downthehollow": {
-      "passwordHash": "$2a$10$HAR1/mbuxXOIRs7HxHVTCe2ljSRxi793oYwqO/l4QrknOIkCgi/7O",
-      "data": {
-        "firstName": "rgnktsjhao",
-        "birthday": "raoeruh"
-      }
-    },
-    "notdownthehollow": {
-      "passwordHash": "$2a$10$.2pPFBhXputbz6hCaSgGgeK.XbDqT25lQCt5rlQPuB41izrcbbNW2",
-      "data": {
-        "firstName": "anotheu",
-        "birthday": "rcohesuh"
-      }
-    },
     "goldenlovers": {
-      "passwordHash": "$2a$10$mjwFW6kr6Zr8J6JN8KfRq.Vsvtb7eofGexs2Yerias8yfO1p1zou.",
+      "passwordHash": "$2a$10$BNtVplxBVa2p56kLnRfCCuu04lwNdY0T1D578vNBZ9PxP07fTihiS",
       "data": {
         "firstName": "Kenny",
-        "birthday": "10101999"
-      }
-    },
-    "liza": {
-      "passwordHash": "$2a$10$Zi0fzvE/7KJN1il.X2NFZOhHwIkvwcOX65.TjO/unTZoGpSiZ9Qou",
-      "data": {
-        "firstName": "Liza",
-        "birthday": "1998-09-29T00:00:00.000Z"
-      }
-    },
-    "majorettekay": {
-      "passwordHash": "$2a$10$kW612moSZpTMWm/HpE3IROBd5NZmDmtThZ06QDYqIukVZlZIBLtiO",
-      "data": {
-        "firstName": "Kayleigh Olecki",
-        "birthday": "1998-11-08T05:00:00.000Z"
+        "birthday": "2001-10-10T04:00:00.000Z"
       }
     }
   }
