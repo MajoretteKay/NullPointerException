@@ -78,7 +78,7 @@ body {
 
 #dayView {
     max-height: 720px;
-    width: 32%;
+    width: 33%;
     overflow-y: auto;
     float: left;
 }
