@@ -98,15 +98,6 @@
               "description": "dumby thicc",
               "location": "G100",
               "type": "Project"
-            },
-            {
-              "title": "HW1",
-              "date": "2019-12-12T05:00:00.000Z",
-              "begins": "09:00",
-              "ends": "11:00",
-              "description": "dumb",
-              "location": "G100",
-              "type": "Homework"
             }
           ]
         }

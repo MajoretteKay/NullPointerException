@@ -257,11 +257,11 @@ export function renderDay() {
 export function renderWeek() {
     let text = `<div id="weekly">`;
     // put when the next stuff due, class, homework, quiz, test, interview, work, study, other
-    text += `<p>Your next Homework is due: <span id="homework"></span></p>`;
-    text += `<p>Your next Quiz is due: <span id="quiz"></span></p>`;
-    text += `<p>Your next Test is due: <span id="test"></span></p>`;
-    text += `<p>Your next Class is: <span id="class"></span></p>`;
-    text += `<p>Your next Project is due: <span id="project"></span></p>`;
+    text += `<p>Your next <a style="color:#FFFF71">Homework</a> is due in:</p>`;
+    text += `<p>Your next <a style="color:#FF9864">Quiz</a> is due in:</p>`;
+    text += `<p>Your next <a style="color:#F84EAB">Test</a> is due in:</p>`;
+    text += `<p>Your next <a style="color:#FFCF56">Class</a> is:</p>`;
+    text += `<p>Your next <a style="color:#FF6B85">Project</a> is due in:</p>`;
     text += `<p><button class="eventButton">Add Event</button></p>`;
     text += `<div id="eventForm"></div>`;
     text += `<a class="weatherwidget-io" href="https://forecast7.com/en/35d91n79d06/chapel-hill/?unit=us" data-label_1="CHAPEL HILL" data-label_2="WEATHER" data-days="3" data-theme="beige" >CHAPEL HILL WEATHER</a>
